@@ -1,0 +1,1432 @@
+window.STORYALBUM_GEO_DATA = {
+  "title": "我的旅行路线回忆",
+  "subtitle": "基于照片地理信息自动生成",
+  "type": "geo_memory_album",
+  "cover": "../assets/geo_album/source_photos/selected/cover_IMG_20251230_191917.jpg",
+  "map": {
+    "preferred": "amap_static",
+    "amapStatic": "../assets/geo_album/maps/amap/geo_route_amap.png",
+    "fallback": "../assets/geo_album/maps/styled/cute_geo_route.svg",
+    "fallbackPng": "../assets/geo_album/maps/styled/cute_geo_route.png",
+    "note": "地图结果已缓存，本页不在前端请求高德 API"
+  },
+  "stops": [
+    {
+      "order": 1,
+      "name": "丽江古城-文昌宫观景台",
+      "formattedAddress": "云南省丽江市古城区大研街道沐兰·日照金山观景客栈(丽江古城大水车店)丽江古城",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "大研街道",
+      "pois": [
+        {
+          "name": "丽江古城-文昌宫观景台",
+          "type": "风景名胜;风景名胜;观景点",
+          "distance": "144.635",
+          "direction": "东北"
+        },
+        {
+          "name": "丽江古城·文昌宫(狮山路)",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "141.53",
+          "direction": "北"
+        },
+        {
+          "name": "沐兰·日照金山观景客栈(丽江古城大水车店)",
+          "type": "住宿服务;宾馆酒店;五星级宾馆",
+          "distance": "24.6937",
+          "direction": "西南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "丽江古城",
+          "type": "110201",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20251230_191917.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251230_191917.jpg",
+          "datetime_original": "2025:12:30 19:19:17",
+          "width": 4896,
+          "height": 6528,
+          "src": "../assets/geo_album/source_photos/selected/stop01_01_IMG_20251230_191917.jpg"
+        },
+        {
+          "filename": "IMG_20251230_192243.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251230_192243.jpg",
+          "datetime_original": "2025:12:30 19:22:43",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop01_02_IMG_20251230_192243.jpg"
+        }
+      ],
+      "caption": "第一站：旅程开始",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.872997,
+        "lng": 100.232095
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 2,
+      "name": "清真寺(北门坡)",
+      "formattedAddress": "云南省丽江市古城区大研街道景缘飘精品民宿(玉缘路分店)清真寺(北门坡)",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "大研街道",
+      "pois": [
+        {
+          "name": "清真寺(北门坡)",
+          "type": "风景名胜;风景名胜;回教寺",
+          "distance": "42.6009",
+          "direction": "西"
+        },
+        {
+          "name": "金悦源酒店(丽江古城大水车店)",
+          "type": "住宿服务;宾馆酒店;五星级宾馆",
+          "distance": "145.666",
+          "direction": "南"
+        },
+        {
+          "name": "壹号大院酒店",
+          "type": "住宿服务;宾馆酒店;五星级宾馆",
+          "distance": "130.213",
+          "direction": "西南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "清真寺(北门坡)",
+          "type": "110207",
+          "distance": "18.4235"
+        },
+        {
+          "name": "天雨文化艺术酒店(丽江古城大水车店)",
+          "type": "100102",
+          "distance": "33.8041"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20251230_195905.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251230_195905.jpg",
+          "datetime_original": "2025:12:30 19:59:05",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop02_01_IMG_20251230_195905.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.878179,
+        "lng": 100.234916
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 3,
+      "name": "雪洛轻奢·日照金山丨设计师民宿SnowMountainSceneryVilla",
+      "formattedAddress": "云南省丽江市玉龙纳西族自治县白沙镇藏光里日照金山·雪山花园SnowMountain度假民宿(白沙古镇店)",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "玉龙纳西族自治县",
+      "township": "白沙镇",
+      "pois": [
+        {
+          "name": "雪洛轻奢·日照金山丨设计师民宿SnowMountainSceneryVilla",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "42.6452",
+          "direction": "西南"
+        },
+        {
+          "name": "为山而来观景民宿(白沙古镇店)",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "49.9952",
+          "direction": "北"
+        },
+        {
+          "name": "伴隐雪.见山观景美宿(白沙古镇店)",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "186.785",
+          "direction": "西"
+        }
+      ],
+      "aois": [],
+      "photos": [
+        {
+          "filename": "IMG_20251231_103947.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_103947.jpg",
+          "datetime_original": "2025:12:31 10:39:47",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop03_01_IMG_20251231_103947.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.958873,
+        "lng": 100.21876
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 4,
+      "name": "为山而来观景民宿(白沙古镇店)",
+      "formattedAddress": "云南省丽江市玉龙纳西族自治县白沙镇广东人家别院(玉龙白沙古镇店)",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "玉龙纳西族自治县",
+      "township": "白沙镇",
+      "pois": [
+        {
+          "name": "为山而来观景民宿(白沙古镇店)",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "157.007",
+          "direction": "南"
+        },
+        {
+          "name": "雪洛轻奢·日照金山丨设计师民宿SnowMountainSceneryVilla",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "248.774",
+          "direction": "南"
+        },
+        {
+          "name": "臻境·好时节Good Times恰逢雪山庭院美宿(白沙古镇店)",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "240.332",
+          "direction": "西"
+        }
+      ],
+      "aois": [],
+      "photos": [
+        {
+          "filename": "IMG_20251231_110021.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_110021.jpg",
+          "datetime_original": "2025:12:31 11:00:21",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop04_01_IMG_20251231_110021.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.960691,
+        "lng": 100.219201
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 5,
+      "name": "向阳",
+      "formattedAddress": "云南省丽江市玉龙纳西族自治县白沙镇无夏而立·Beyond summer|雪山私汤|原木智控独院",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "玉龙纳西族自治县",
+      "township": "白沙镇",
+      "pois": [
+        {
+          "name": "向阳",
+          "type": "地名地址信息;普通地名;村庄级地名",
+          "distance": "150.839",
+          "direction": "西"
+        },
+        {
+          "name": "随缘居·sunny villa丨雪见·山观·设计师民宿(白沙古镇店)",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "133.855",
+          "direction": "西北"
+        },
+        {
+          "name": "云隐里雪山观景小院(白沙古镇店)",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "258.704",
+          "direction": "西"
+        }
+      ],
+      "aois": [],
+      "photos": [
+        {
+          "filename": "IMG_20251231_113439.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_113439.jpg",
+          "datetime_original": "2025:12:31 11:34:39",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop05_01_IMG_20251231_113439.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.963704,
+        "lng": 100.219134
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 6,
+      "name": "玉龙纳西族自治县白沙镇幼儿园",
+      "formattedAddress": "云南省丽江市玉龙纳西族自治县白沙镇云中白沙客栈(新尚段分店)玉龙纳西族自治县白沙镇幼儿园",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "玉龙纳西族自治县",
+      "township": "白沙镇",
+      "pois": [
+        {
+          "name": "玉龙纳西族自治县白沙镇幼儿园",
+          "type": "科教文化服务;学校;幼儿园",
+          "distance": "50.7596",
+          "direction": "南"
+        },
+        {
+          "name": "玉龙善哉善哉精致客栈",
+          "type": "住宿服务;宾馆酒店;四星级宾馆",
+          "distance": "126.604",
+          "direction": "南"
+        },
+        {
+          "name": "白沙壁画-金刚殿",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "189.318",
+          "direction": "东南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "玉龙纳西族自治县白沙镇幼儿园",
+          "type": "141204",
+          "distance": "0"
+        },
+        {
+          "name": "白沙古镇",
+          "type": "110200",
+          "distance": "0"
+        },
+        {
+          "name": "白沙市场监督管理所",
+          "type": "130105",
+          "distance": "35.0032"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20251231_120024.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_120024.jpg",
+          "datetime_original": "2025:12:31 12:00:24",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop06_01_IMG_20251231_120024.jpg"
+        },
+        {
+          "filename": "IMG_20251231_120719.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_120719.jpg",
+          "datetime_original": "2025:12:31 12:07:19",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop06_02_IMG_20251231_120719.jpg"
+        },
+        {
+          "filename": "IMG_20251231_120933.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_120933.jpg",
+          "datetime_original": "2025:12:31 12:09:33",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop06_03_IMG_20251231_120933.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.9575033,
+        "lng": 100.2163493
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 7,
+      "name": "清溪公园",
+      "formattedAddress": "云南省丽江市古城区西安街道睦顺花园雪山揽景酒店(丽江古城店)清溪公园",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "西安街道",
+      "pois": [
+        {
+          "name": "清溪公园",
+          "type": "风景名胜;公园广场;公园",
+          "distance": "306.84",
+          "direction": "西南"
+        },
+        {
+          "name": "睦顺花园雪山揽景酒店(丽江古城店)",
+          "type": "商务住宅;住宅区;住宅小区",
+          "distance": "77.2545",
+          "direction": "东北"
+        },
+        {
+          "name": "黑白水林业局集资房小区",
+          "type": "商务住宅;住宅区;住宅小区",
+          "distance": "165.278",
+          "direction": "东北"
+        }
+      ],
+      "aois": [
+        {
+          "name": "清溪公园",
+          "type": "110101",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "MVIMG_20251231_133118.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/MVIMG_20251231_133118.jpg",
+          "datetime_original": "2025:12:31 13:31:18",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop07_01_MVIMG_20251231_133118.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.902913,
+        "lng": 100.230203
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 8,
+      "name": "树底",
+      "formattedAddress": "云南省丽江市古城区文化街道348国道",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "文化街道",
+      "pois": [
+        {
+          "name": "树底",
+          "type": "地名地址信息;普通地名;村庄级地名",
+          "distance": "199.285",
+          "direction": "东"
+        },
+        {
+          "name": "食来福酒家",
+          "type": "餐饮服务;餐饮相关场所;餐饮相关",
+          "distance": "290.072",
+          "direction": "东北"
+        },
+        {
+          "name": "金沙江树底码头",
+          "type": "交通设施服务;港口码头;港口码头",
+          "distance": "396.092",
+          "direction": "东南"
+        }
+      ],
+      "aois": [],
+      "photos": [
+        {
+          "filename": "IMG_20251231_162019.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_162019.jpg",
+          "datetime_original": "2025:12:31 16:20:19",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop08_01_IMG_20251231_162019.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.995613,
+        "lng": 100.433438
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 9,
+      "name": "泸沽湖国家级风景名胜区-洛洼南古村落",
+      "formattedAddress": "四川省凉山彝族自治州盐源县泸沽湖镇宁蒗县泸沽湖旅游汽车服务有限公司泸沽湖国家级风景名胜区",
+      "province": "四川省",
+      "city": "凉山彝族自治州",
+      "district": "盐源县",
+      "township": "泸沽湖镇",
+      "pois": [
+        {
+          "name": "泸沽湖国家级风景名胜区-洛洼南古村落",
+          "type": "风景名胜;风景名胜相关;旅游景点",
+          "distance": "896.598",
+          "direction": "东"
+        },
+        {
+          "name": "泸沽湖勒得远山民宿",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "825.862",
+          "direction": "东南"
+        },
+        {
+          "name": "泸沽湖觅悦星雨缘民宿",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "733.921",
+          "direction": "南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260101_074803.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_074803.jpg",
+          "datetime_original": "2026:01:01 07:48:03",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop09_01_IMG_20260101_074803.jpg"
+        },
+        {
+          "filename": "IMG_20260101_080227.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_080227.jpg",
+          "datetime_original": "2026:01:01 08:02:27",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop09_02_IMG_20260101_080227.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.687681,
+        "lng": 100.8331165
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 10,
+      "name": "直玛次尔亭",
+      "formattedAddress": "四川省凉山彝族自治州盐源县泸沽湖镇022乡道泸沽湖国家级风景名胜区",
+      "province": "四川省",
+      "city": "凉山彝族自治州",
+      "district": "盐源县",
+      "township": "泸沽湖镇",
+      "pois": [
+        {
+          "name": "直玛次尔亭",
+          "type": "风景名胜;风景名胜相关;旅游景点",
+          "distance": "149.216",
+          "direction": "东南"
+        },
+        {
+          "name": "凉山彝族自治州泸沽湖旅游景区-五支洛码头",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "475.669",
+          "direction": "东"
+        },
+        {
+          "name": "泸沽湖国家级风景名胜区洛洼码头停车场",
+          "type": "交通设施服务;停车场;公共停车场",
+          "distance": "313.176",
+          "direction": "西"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260101_080702.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_080702.jpg",
+          "datetime_original": "2026:01:01 08:07:02",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop10_01_IMG_20260101_080702.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.700737,
+        "lng": 100.835257
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 11,
+      "name": "官地花海码头",
+      "formattedAddress": "云南省丽江市宁蒗彝族自治县永宁镇官地花海码头泸沽湖国家级风景名胜区",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "宁蒗彝族自治县",
+      "township": "永宁镇",
+      "pois": [
+        {
+          "name": "官地花海码头",
+          "type": "交通设施服务;港口码头;人渡口",
+          "distance": "273.514",
+          "direction": "东"
+        },
+        {
+          "name": "普洛花海码头",
+          "type": "交通设施服务;港口码头;港口码头",
+          "distance": "414.971",
+          "direction": "南"
+        },
+        {
+          "name": "普洛码头",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "443.558",
+          "direction": "东南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260101_083405.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_083405.jpg",
+          "datetime_original": "2026:01:01 08:34:05",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop11_01_IMG_20260101_083405.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.677815,
+        "lng": 100.8294
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 12,
+      "name": "泸沽湖景区-雍仲林寺(喇塔贡巴)",
+      "formattedAddress": "四川省凉山彝族自治州盐源县泸沽湖镇蒙源餐厅泸沽湖国家级风景名胜区",
+      "province": "四川省",
+      "city": "凉山彝族自治州",
+      "district": "盐源县",
+      "township": "泸沽湖镇",
+      "pois": [
+        {
+          "name": "泸沽湖景区-雍仲林寺(喇塔贡巴)",
+          "type": "风景名胜;风景名胜;寺庙道观",
+          "distance": "380.121",
+          "direction": "西北"
+        },
+        {
+          "name": "蒙源餐厅",
+          "type": "餐饮服务;中餐厅;中餐厅",
+          "distance": "306.008",
+          "direction": "西北"
+        },
+        {
+          "name": "泸沽湖国家级风景名胜区走婚桥",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "485.566",
+          "direction": "南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260101_091313.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_091313.jpg",
+          "datetime_original": "2026:01:01 09:13:13",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop12_01_IMG_20260101_091313.jpg"
+        },
+        {
+          "filename": "IMG_20260101_092016.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_092016.jpg",
+          "datetime_original": "2026:01:01 09:20:16",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop12_02_IMG_20260101_092016.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.713895,
+        "lng": 100.875362
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 13,
+      "name": "泸沽湖风景名胜区出水洞",
+      "formattedAddress": "四川省凉山彝族自治州盐源县泸沽湖镇307省道泸沽湖国家级风景名胜区",
+      "province": "四川省",
+      "city": "凉山彝族自治州",
+      "district": "盐源县",
+      "township": "泸沽湖镇",
+      "pois": [
+        {
+          "name": "泸沽湖风景名胜区出水洞",
+          "type": "风景名胜;风景名胜相关;旅游景点",
+          "distance": "428.789",
+          "direction": "南"
+        },
+        {
+          "name": "茉夕小院",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "407.339",
+          "direction": "西"
+        },
+        {
+          "name": "泸源台",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "440.438",
+          "direction": "东南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260101_102837.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_102837.jpg",
+          "datetime_original": "2026:01:01 10:28:37",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop13_01_IMG_20260101_102837.jpg"
+        },
+        {
+          "filename": "IMG_20260101_102853.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_102853.jpg",
+          "datetime_original": "2026:01:01 10:28:53",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop13_02_IMG_20260101_102853.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.7450575,
+        "lng": 100.7810655
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 14,
+      "name": "小洛水(建设中)",
+      "formattedAddress": "云南省丽江市宁蒗彝族自治县永宁镇小洛水(建设中)泸沽湖国家级风景名胜区",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "宁蒗彝族自治县",
+      "township": "永宁镇",
+      "pois": [
+        {
+          "name": "小洛水(建设中)",
+          "type": "地名地址信息;普通地名;村庄级地名",
+          "distance": "31.7668",
+          "direction": "东"
+        },
+        {
+          "name": "祥云村",
+          "type": "地名地址信息;普通地名;村庄级地名",
+          "distance": "51.0622",
+          "direction": "东"
+        },
+        {
+          "name": "宁蒗泸沽湖素巢木屋",
+          "type": "住宿服务;住宿服务相关;住宿服务相关",
+          "distance": "137.38",
+          "direction": "东北"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        },
+        {
+          "name": "泸沽湖山海·故里酒店",
+          "type": "100000",
+          "distance": "11.6379"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260101_104425.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_104425.jpg",
+          "datetime_original": "2026:01:01 10:44:25",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop14_01_IMG_20260101_104425.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.743071,
+        "lng": 100.768959
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 15,
+      "name": "次第花开客栈(泸沽湖大落水店)",
+      "formattedAddress": "云南省丽江市宁蒗彝族自治县永宁镇步行街泸沽湖国家级风景名胜区",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "宁蒗彝族自治县",
+      "township": "永宁镇",
+      "pois": [
+        {
+          "name": "次第花开客栈(泸沽湖大落水店)",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "275.122",
+          "direction": "南"
+        },
+        {
+          "name": "泸沽湖海境酒店",
+          "type": "住宿服务;宾馆酒店;宾馆酒店",
+          "distance": "288.994",
+          "direction": "南"
+        },
+        {
+          "name": "戈瓦·花时间酒店(泸沽湖大落水村店)",
+          "type": "住宿服务;宾馆酒店;宾馆酒店|住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "291.665",
+          "direction": "西南"
+        }
+      ],
+      "aois": [
+        {
+          "name": "泸沽湖国家级风景名胜区",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "MVIMG_20260101_121048.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/MVIMG_20260101_121048.jpg",
+          "datetime_original": "2026:01:01 12:10:48",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop15_01_MVIMG_20260101_121048.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 27.683493,
+        "lng": 100.766737
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 16,
+      "name": "茶马古道博物馆",
+      "formattedAddress": "云南省丽江市古城区束河街道丽江木栖客栈束河古镇",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "束河街道",
+      "pois": [
+        {
+          "name": "茶马古道博物馆",
+          "type": "科教文化服务;博物馆;博物馆",
+          "distance": "288.478",
+          "direction": "东南"
+        },
+        {
+          "name": "束河古镇-九鼎龙潭",
+          "type": "风景名胜;风景名胜;风景名胜",
+          "distance": "107.817",
+          "direction": "东"
+        },
+        {
+          "name": "束河古镇-龙泉寺",
+          "type": "风景名胜;风景名胜;寺庙道观",
+          "distance": "116.919",
+          "direction": "东北"
+        }
+      ],
+      "aois": [
+        {
+          "name": "束河古镇",
+          "type": "110202",
+          "distance": "0"
+        },
+        {
+          "name": "茶马古道博物馆",
+          "type": "140100",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260102_103132.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260102_103132.jpg",
+          "datetime_original": "2026:01:02 10:31:32",
+          "width": 2304,
+          "height": 4096,
+          "src": "../assets/geo_album/source_photos/selected/stop16_01_IMG_20260102_103132.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.92391,
+        "lng": 100.20284
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 17,
+      "name": "丽江束河塘舍精品客栈",
+      "formattedAddress": "云南省丽江市古城区束河街道疏河巷",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "束河街道",
+      "pois": [
+        {
+          "name": "丽江束河塘舍精品客栈",
+          "type": "住宿服务;旅馆招待所;旅馆招待所",
+          "distance": "215.529",
+          "direction": "东南"
+        },
+        {
+          "name": "丽江后来客栈",
+          "type": "住宿服务;宾馆酒店;宾馆酒店",
+          "distance": "195.976",
+          "direction": "东南"
+        },
+        {
+          "name": "束河古镇-龙泉寺",
+          "type": "风景名胜;风景名胜;寺庙道观",
+          "distance": "359.376",
+          "direction": "南"
+        }
+      ],
+      "aois": [],
+      "photos": [
+        {
+          "filename": "IMG_20260102_123237.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260102_123237.jpg",
+          "datetime_original": "2026:01:02 12:32:37",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop17_01_IMG_20260102_123237.jpg"
+        }
+      ],
+      "caption": "中间站：沿途停留",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.927677,
+        "lng": 100.203007
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    },
+    {
+      "order": 18,
+      "name": "丽江市博物院",
+      "formattedAddress": "云南省丽江市古城区西安街道五凤楼黑龙潭",
+      "province": "云南省",
+      "city": "丽江市",
+      "district": "古城区",
+      "township": "西安街道",
+      "pois": [
+        {
+          "name": "丽江市博物院",
+          "type": "科教文化服务;博物馆;博物馆",
+          "distance": "142.027",
+          "direction": "西北"
+        },
+        {
+          "name": "五凤楼",
+          "type": "风景名胜;风景名胜相关;旅游景点",
+          "distance": "90.0123",
+          "direction": "东"
+        },
+        {
+          "name": "丽江东巴文化博物馆",
+          "type": "科教文化服务;博物馆;博物馆",
+          "distance": "169.656",
+          "direction": "西北"
+        }
+      ],
+      "aois": [
+        {
+          "name": "黑龙潭",
+          "type": "110202",
+          "distance": "0"
+        }
+      ],
+      "photos": [
+        {
+          "filename": "IMG_20260102_152321.jpg",
+          "relative_path": "assets/geo_album/source_photos/original/IMG_20260102_152321.jpg",
+          "datetime_original": "2026:01:02 15:23:21",
+          "width": 4096,
+          "height": 2304,
+          "src": "../assets/geo_album/source_photos/selected/stop18_01_IMG_20260102_152321.jpg"
+        }
+      ],
+      "caption": "最后一站：路线收尾",
+      "dataSource": "EXIF GPS + AMap reverse geocode",
+      "coordinate": {
+        "lat": 26.8861,
+        "lng": 100.233536
+      },
+      "note": "EXIF GPS 为 WGS84；当前 MVP 未做 WGS84 到 GCJ-02 转换，地图和地址可能存在偏移。",
+      "error": ""
+    }
+  ],
+  "photos": [
+    {
+      "filename": "IMG_20251230_191917.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251230_191917.jpg",
+      "width": 4896,
+      "height": 6528,
+      "datetime_original": "2025:12:30 19:19:17",
+      "gps_lat_wgs84": 26.872752,
+      "gps_lng_wgs84": 100.231985,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/01_IMG_20251230_191917.jpg"
+    },
+    {
+      "filename": "IMG_20251230_192243.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251230_192243.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2025:12:30 19:22:43",
+      "gps_lat_wgs84": 26.873242,
+      "gps_lng_wgs84": 100.232205,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/02_IMG_20251230_192243.jpg"
+    },
+    {
+      "filename": "IMG_20251230_195905.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251230_195905.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:30 19:59:05",
+      "gps_lat_wgs84": 26.878179,
+      "gps_lng_wgs84": 100.234916,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/03_IMG_20251230_195905.jpg"
+    },
+    {
+      "filename": "IMG_20251231_103947.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_103947.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2025:12:31 10:39:47",
+      "gps_lat_wgs84": 26.958873,
+      "gps_lng_wgs84": 100.21876,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/04_IMG_20251231_103947.jpg"
+    },
+    {
+      "filename": "IMG_20251231_110021.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_110021.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:31 11:00:21",
+      "gps_lat_wgs84": 26.960691,
+      "gps_lng_wgs84": 100.219201,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/05_IMG_20251231_110021.jpg"
+    },
+    {
+      "filename": "IMG_20251231_113439.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_113439.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:31 11:34:39",
+      "gps_lat_wgs84": 26.963704,
+      "gps_lng_wgs84": 100.219134,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/06_IMG_20251231_113439.jpg"
+    },
+    {
+      "filename": "IMG_20251231_120024.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_120024.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2025:12:31 12:00:24",
+      "gps_lat_wgs84": 26.957402,
+      "gps_lng_wgs84": 100.215677,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/07_IMG_20251231_120024.jpg"
+    },
+    {
+      "filename": "IMG_20251231_120719.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_120719.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:31 12:07:19",
+      "gps_lat_wgs84": 26.957553,
+      "gps_lng_wgs84": 100.216667,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/08_IMG_20251231_120719.jpg"
+    },
+    {
+      "filename": "IMG_20251231_120933.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_120933.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:31 12:09:33",
+      "gps_lat_wgs84": 26.957555,
+      "gps_lng_wgs84": 100.216704,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/09_IMG_20251231_120933.jpg"
+    },
+    {
+      "filename": "MVIMG_20251231_133118.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/MVIMG_20251231_133118.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:31 13:31:18",
+      "gps_lat_wgs84": 26.902913,
+      "gps_lng_wgs84": 100.230203,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/10_MVIMG_20251231_133118.jpg"
+    },
+    {
+      "filename": "IMG_20251231_162019.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20251231_162019.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2025:12:31 16:20:19",
+      "gps_lat_wgs84": 26.995613,
+      "gps_lng_wgs84": 100.433438,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/11_IMG_20251231_162019.jpg"
+    },
+    {
+      "filename": "IMG_20260101_074803.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_074803.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:01 07:48:03",
+      "gps_lat_wgs84": 27.687355,
+      "gps_lng_wgs84": 100.832839,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/12_IMG_20260101_074803.jpg"
+    },
+    {
+      "filename": "IMG_20260101_080227.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_080227.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2026:01:01 08:02:27",
+      "gps_lat_wgs84": 27.688007,
+      "gps_lng_wgs84": 100.833394,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/13_IMG_20260101_080227.jpg"
+    },
+    {
+      "filename": "IMG_20260101_080702.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_080702.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:01 08:07:02",
+      "gps_lat_wgs84": 27.700737,
+      "gps_lng_wgs84": 100.835257,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/14_IMG_20260101_080702.jpg"
+    },
+    {
+      "filename": "IMG_20260101_083405.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_083405.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:01 08:34:05",
+      "gps_lat_wgs84": 27.677815,
+      "gps_lng_wgs84": 100.8294,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/15_IMG_20260101_083405.jpg"
+    },
+    {
+      "filename": "IMG_20260101_091313.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_091313.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:01 09:13:13",
+      "gps_lat_wgs84": 27.713103,
+      "gps_lng_wgs84": 100.875763,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/16_IMG_20260101_091313.jpg"
+    },
+    {
+      "filename": "IMG_20260101_092016.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_092016.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:01 09:20:16",
+      "gps_lat_wgs84": 27.714687,
+      "gps_lng_wgs84": 100.874961,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/17_IMG_20260101_092016.jpg"
+    },
+    {
+      "filename": "IMG_20260101_102837.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_102837.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2026:01:01 10:28:37",
+      "gps_lat_wgs84": 27.745072,
+      "gps_lng_wgs84": 100.781044,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/18_IMG_20260101_102837.jpg"
+    },
+    {
+      "filename": "IMG_20260101_102853.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_102853.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:01 10:28:53",
+      "gps_lat_wgs84": 27.745043,
+      "gps_lng_wgs84": 100.781087,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/19_IMG_20260101_102853.jpg"
+    },
+    {
+      "filename": "IMG_20260101_104425.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260101_104425.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2026:01:01 10:44:25",
+      "gps_lat_wgs84": 27.743071,
+      "gps_lng_wgs84": 100.768959,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/20_IMG_20260101_104425.jpg"
+    },
+    {
+      "filename": "MVIMG_20260101_121048.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/MVIMG_20260101_121048.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2026:01:01 12:10:48",
+      "gps_lat_wgs84": 27.683493,
+      "gps_lng_wgs84": 100.766737,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/21_MVIMG_20260101_121048.jpg"
+    },
+    {
+      "filename": "IMG_20260102_103132.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260102_103132.jpg",
+      "width": 2304,
+      "height": 4096,
+      "datetime_original": "2026:01:02 10:31:32",
+      "gps_lat_wgs84": 26.92391,
+      "gps_lng_wgs84": 100.20284,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/22_IMG_20260102_103132.jpg"
+    },
+    {
+      "filename": "IMG_20260102_123237.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260102_123237.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:02 12:32:37",
+      "gps_lat_wgs84": 26.927677,
+      "gps_lng_wgs84": 100.203007,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/23_IMG_20260102_123237.jpg"
+    },
+    {
+      "filename": "IMG_20260102_152321.jpg",
+      "relative_path": "assets/geo_album/source_photos/original/IMG_20260102_152321.jpg",
+      "width": 4096,
+      "height": 2304,
+      "datetime_original": "2026:01:02 15:23:21",
+      "gps_lat_wgs84": 26.8861,
+      "gps_lng_wgs84": 100.233536,
+      "gps_altitude": 0.0,
+      "has_gps": true,
+      "exif_status": "ok",
+      "selected": true,
+      "notes": "",
+      "sort_time": "",
+      "src": "../assets/geo_album/source_photos/selected/24_IMG_20260102_152321.jpg"
+    }
+  ],
+  "stats": {
+    "photoCount": 24,
+    "gpsPhotoCount": 24,
+    "nonGpsPhotoCount": 0,
+    "stopCount": 18,
+    "apiCallCount": 21,
+    "reverseGeocodeCallCount": 18,
+    "staticMapCallCount": 3,
+    "hasAmapReverseGeocode": true,
+    "hasAmapStaticMap": true,
+    "usedFallbackMap": false
+  },
+  "notes": [
+    "照片 EXIF GPS 通常为 WGS84；高德地图使用 GCJ-02，当前 MVP 可能存在坐标偏移。",
+    "所有高德 API 请求都在 Python 脚本中完成；前端只读取本地 JSON 和缓存图片。"
+  ]
+};

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StoryAlbum Geo｜基于照片地址的旅行回忆相册</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav">
+        <strong>StoryAlbum Geo</strong>
+        <span>Photo GPS · Lake Route Album</span>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Geo Memory Album</p>
+          <h1>把照片里的地址，连成一条会呼吸的旅行路线。</h1>
+          <p class="subtitle">从照片 GPS、拍摄时间和附近 POI 中生成路线地图、点位故事和旅行相册，让一次行程自然变成可以展示的 StoryAlbum。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#route-map">查看地图对照</a>
+            <a class="button secondary" href="#story-stops">浏览点位故事</a>
+          </div>
+        </div>
+
+        <aside class="hero-board" aria-label="旅行相册封面和数据摘要">
+          <figure class="cover-card">
+            <img id="coverImage" alt="旅行相册封面" />
+            <figcaption>
+              <span>Cover Photo</span>
+              <strong>基于照片地址的旅行回忆相册</strong>
+            </figcaption>
+          </figure>
+          <div class="hero-stats">
+            <span id="heroPhotoCount">24 photos</span>
+            <span id="heroStopCount">18 stops</span>
+            <span>Cached map</span>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section overview">
+        <div class="section-head">
+          <p class="eyebrow">Result Overview</p>
+          <h2>结果概览</h2>
+          <p>所有地图与地址结果都已缓存到本地，本页不在前端请求高德 API。</p>
+        </div>
+        <div id="statsGrid" class="stats-grid"></div>
+      </section>
+
+      <section id="route-map" class="section map-section">
+        <div class="section-head split-head">
+          <div>
+            <p class="eyebrow">Map Comparison</p>
+            <h2>路线地图双视图</h2>
+          </div>
+          <p>左侧保留原始高德静态地图底图，右侧展示适合相册封面和视频卡片的风格化路线图。</p>
+        </div>
+        <div class="map-comparison">
+          <article class="map-panel">
+            <div class="panel-title">
+              <span>01</span>
+              <div>
+                <p class="eyebrow">Original Base</p>
+                <h3>原始高德地图底图</h3>
+              </div>
+            </div>
+            <img id="amapRouteMap" alt="高德静态地图路线" />
+          </article>
+          <article class="map-panel stylized">
+            <div class="panel-title">
+              <span>02</span>
+              <div>
+                <p class="eyebrow">Album Style</p>
+                <h3>风格化路线图</h3>
+              </div>
+            </div>
+            <img id="styledRouteMap" alt="风格化旅行路线图" />
+          </article>
+        </div>
+        <p id="mapNote" class="map-note">地图结果已缓存，本页不在前端请求高德 API。</p>
+      </section>
+
+      <section id="story-stops" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Stop Stories</p>
+          <h2>点位故事</h2>
+        </div>
+        <div id="stopsList" class="stops-list"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <p class="eyebrow">Photo Wall</p>
+          <h2>照片墙</h2>
+        </div>
+        <div id="photoWall" class="photo-wall"></div>
+      </section>
+
+      <section class="section capability">
+        <div class="section-head">
+          <p class="eyebrow">Product Flow</p>
+          <h2>产品能力</h2>
+        </div>
+        <div class="step-row">
+          <span>照片输入</span>
+          <span>地理信息结构化</span>
+          <span>地图相册输出</span>
+        </div>
+      </section>
+
+      <section class="section roadmap">
+        <article>
+          <p class="eyebrow">P0</p>
+          <h3>本地可爱风路线图</h3>
+          <p>无 API 或 GPS 不完整时，仍可生成可展示的路线示意图。</p>
+        </article>
+        <article>
+          <p class="eyebrow">MVP</p>
+          <h3>EXIF GPS + 高德地图</h3>
+          <p>读取照片坐标，逆地理编码补全地址，并缓存高德静态地图。</p>
+        </article>
+        <article>
+          <p class="eyebrow">P1</p>
+          <h3>路线规划与视频模板</h3>
+          <p>增加坐标转换、真实道路路线规划和旅行视频卡片渲染。</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>StoryAlbum Geo · 地图结果已缓存 · 前端不请求高德 API</footer>
+    <script src="data/geo_album.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+

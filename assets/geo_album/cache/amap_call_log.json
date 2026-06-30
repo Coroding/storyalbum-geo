@@ -1,0 +1,188 @@
+[
+  {
+    "time": "2026-06-29T23:22:05",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.872997,100.232095",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.232095,26.872997&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:05",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.878179,100.234916",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.234916,26.878179&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:05",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.958873,100.218760",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.21876,26.958873&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:05",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.960691,100.219201",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.219201,26.960691&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.963704,100.219134",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.219134,26.963704&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.957503,100.216349",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.2163493,26.9575033&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.902913,100.230203",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.230203,26.902913&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.995613,100.433438",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.433438,26.995613&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.687681,100.833117",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.8331165,27.687681&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.700737,100.835257",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.835257,27.700737&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.677815,100.829400",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.8294,27.677815&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.713895,100.875362",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.875362,27.713895&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.745058,100.781065",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.7810655,27.7450575&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.743071,100.768959",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.768959,27.743071&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "27.683493,100.766737",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.766737,27.683493&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:06",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.923910,100.202840",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.20284,26.92391&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:07",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.927677,100.203007",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.203007,26.927677&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:07",
+    "type": "reverse_geocode",
+    "called_api": true,
+    "coord_key": "26.886100,100.233536",
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/geocode/regeo?key=***&location=100.233536,26.8861&extensions=all&radius=1000&roadlevel=0&output=json",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:22:25",
+    "type": "static_map",
+    "called_api": true,
+    "ok": false,
+    "masked_url": "https://restapi.amap.com/v3/staticmap?key=***&location=100.46296535,27.232217211111113&zoom=12&size=750*1000&scale=2&markers=mid,0x2f80ed,1:100.232095,26.872997|mid,0x2f80ed,2:100.234916,26.878179|mid,0x2f80ed,3:100.21876,26.958873|mid,0x2f80ed,4:100.219201,26.960691|mid,0x2f80ed,5:100.219134,26.963704|mid,0x2f80ed,6:100.2163493,26.9575033|mid,0x2f80ed,7:100.230203,26.902913|mid,0x2f80ed,8:100.433438,26.995613|mid,0x2f80ed,9:100.8331165,27.687681|mid,0x2f80ed,10:100.835257,27.700737|mid,0x2f80ed,11:100.8294,27.677815|mid,0x2f80ed,12:100.875362,27.713895|mid,0x2f80ed,13:100.7810655,27.7450575|mid,0x2f80ed,14:100.768959,27.743071|mid,0x2f80ed,15:100.766737,27.683493|mid,0x2f80ed,16:100.20284,26.92391|mid,0x2f80ed,17:100.203007,26.927677|mid,0x2f80ed,18:100.233536,26.8861&labels=01.%E4%B8%BD%E6%B1%9F%E5%8F%A4%E5%9F%8E-%E6%96%87%E6%98%8C%E5%AE%AB,1,0,16,0xFFFFFF,0x2f80ed:100.232095,26.872997|02.%E6%B8%85%E7%9C%9F%E5%AF%BA%28%E5%8C%97%E9%97%A8%E5%9D%A1%29,1,0,16,0xFFFFFF,0x2f80ed:100.234916,26.878179|03.%E9%9B%AA%E6%B4%9B%E8%BD%BB%E5%A5%A2%C2%B7%E6%97%A5%E7%85%A7%E9%87%91,1,0,16,0xFFFFFF,0x2f80ed:100.21876,26.958873|04.%E4%B8%BA%E5%B1%B1%E8%80%8C%E6%9D%A5%E8%A7%82%E6%99%AF%E6%B0%91%E5%AE%BF,1,0,16,0xFFFFFF,0x2f80ed:100.219201,26.960691|05.%E5%90%91%E9%98%B3,1,0,16,0xFFFFFF,0x2f80ed:100.219134,26.963704|06.%E7%8E%89%E9%BE%99%E7%BA%B3%E8%A5%BF%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8E%BF,1,0,16,0xFFFFFF,0x2f80ed:100.2163493,26.9575033|07.%E6%B8%85%E6%BA%AA%E5%85%AC%E5%9B%AD,1,0,16,0xFFFFFF,0x2f80ed:100.230203,26.902913|08.%E6%A0%91%E5%BA%95,1,0,16,0xFFFFFF,0x2f80ed:100.433438,26.995613|09.%E6%B3%B8%E6%B2%BD%E6%B9%96%E5%9B%BD%E5%AE%B6%E7%BA%A7%E9%A3%8E%E6%99%AF,1,0,16,0xFFFFFF,0x2f80ed:100.8331165,27.687681|10.%E7%9B%B4%E7%8E%9B%E6%AC%A1%E5%B0%94%E4%BA%AD,1,0,16,0xFFFFFF,0x2f80ed:100.835257,27.700737|11.%E5%AE%98%E5%9C%B0%E8%8A%B1%E6%B5%B7%E7%A0%81%E5%A4%B4,1,0,16,0xFFFFFF,0x2f80ed:100.8294,27.677815|12.%E6%B3%B8%E6%B2%BD%E6%B9%96%E6%99%AF%E5%8C%BA-%E9%9B%8D%E4%BB%B2,1,0,16,0xFFFFFF,0x2f80ed:100.875362,27.713895|13.%E6%B3%B8%E6%B2%BD%E6%B9%96%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA,1,0,16,0xFFFFFF,0x2f80ed:100.7810655,27.7450575|14.%E5%B0%8F%E6%B4%9B%E6%B0%B4%28%E5%BB%BA%E8%AE%BE%E4%B8%AD%29,1,0,16,0xFFFFFF,0x2f80ed:100.768959,27.743071|15.%E6%AC%A1%E7%AC%AC%E8%8A%B1%E5%BC%80%E5%AE%A2%E6%A0%88%28%E6%B3%B8,1,0,16,0xFFFFFF,0x2f80ed:100.766737,27.683493|16.%E8%8C%B6%E9%A9%AC%E5%8F%A4%E9%81%93%E5%8D%9A%E7%89%A9%E9%A6%86,1,0,16,0xFFFFFF,0x2f80ed:100.20284,26.92391|17.%E4%B8%BD%E6%B1%9F%E6%9D%9F%E6%B2%B3%E5%A1%98%E8%88%8D%E7%B2%BE%E5%93%81,1,0,16,0xFFFFFF,0x2f80ed:100.203007,26.927677|18.%E4%B8%BD%E6%B1%9F%E5%B8%82%E5%8D%9A%E7%89%A9%E9%99%A2,1,0,16,0xFFFFFF,0x2f80ed:100.233536,26.8861&paths=8,0x38a169,0.75,,:100.232095,26.872997;100.234916,26.878179;100.21876,26.958873;100.219201,26.960691;100.219134,26.963704;100.2163493,26.9575033;100.230203,26.902913;100.433438,26.995613;100.8331165,27.687681;100.835257,27.700737;100.8294,27.677815;100.875362,27.713895;100.7810655,27.7450575;100.768959,27.743071;100.766737,27.683493;100.20284,26.92391;100.203007,26.927677;100.233536,26.8861",
+    "error": "RuntimeError: AMap did not return an image: b'{\"status\":\"0\",\"info\":\"UNKNOWN_ERROR\",\"infocode\":\"20003\"}'"
+  },
+  {
+    "time": "2026-06-29T23:24:04",
+    "type": "static_map",
+    "called_api": true,
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/staticmap?key=***&location=100.462965,27.232217&zoom=12&size=750*1000&scale=2&markers=mid,0x2f80ed,1:100.232095,26.872997|mid,0x2f80ed,2:100.234916,26.878179|mid,0x2f80ed,3:100.218760,26.958873|mid,0x2f80ed,4:100.219201,26.960691|mid,0x2f80ed,5:100.219134,26.963704|mid,0x2f80ed,6:100.216349,26.957503|mid,0x2f80ed,7:100.230203,26.902913|mid,0x2f80ed,8:100.433438,26.995613|mid,0x2f80ed,9:100.833117,27.687681|mid,0x2f80ed,A:100.835257,27.700737&labels=01.%E4%B8%BD%E6%B1%9F%E5%8F%A4%E5%9F%8E-%E6%96%87%E6%98%8C%E5%AE%AB,0,1,14,0xFFFFFF,0x2f80ed:100.232095,26.872997|02.%E6%B8%85%E7%9C%9F%E5%AF%BA%28%E5%8C%97%E9%97%A8%E5%9D%A1%29,0,1,14,0xFFFFFF,0x2f80ed:100.234916,26.878179|03.%E9%9B%AA%E6%B4%9B%E8%BD%BB%E5%A5%A2%C2%B7%E6%97%A5%E7%85%A7%E9%87%91,0,1,14,0xFFFFFF,0x2f80ed:100.218760,26.958873|04.%E4%B8%BA%E5%B1%B1%E8%80%8C%E6%9D%A5%E8%A7%82%E6%99%AF%E6%B0%91%E5%AE%BF,0,1,14,0xFFFFFF,0x2f80ed:100.219201,26.960691|05.%E5%90%91%E9%98%B3,0,1,14,0xFFFFFF,0x2f80ed:100.219134,26.963704|06.%E7%8E%89%E9%BE%99%E7%BA%B3%E8%A5%BF%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8E%BF,0,1,14,0xFFFFFF,0x2f80ed:100.216349,26.957503|07.%E6%B8%85%E6%BA%AA%E5%85%AC%E5%9B%AD,0,1,14,0xFFFFFF,0x2f80ed:100.230203,26.902913|08.%E6%A0%91%E5%BA%95,0,1,14,0xFFFFFF,0x2f80ed:100.433438,26.995613|09.%E6%B3%B8%E6%B2%BD%E6%B9%96%E5%9B%BD%E5%AE%B6%E7%BA%A7%E9%A3%8E%E6%99%AF,0,1,14,0xFFFFFF,0x2f80ed:100.833117,27.687681|10.%E7%9B%B4%E7%8E%9B%E6%AC%A1%E5%B0%94%E4%BA%AD,0,1,14,0xFFFFFF,0x2f80ed:100.835257,27.700737&paths=8,0x38a169,0.75,,:100.232095,26.872997;100.234916,26.878179;100.21876,26.958873;100.219201,26.960691;100.219134,26.963704;100.216349,26.957503;100.230203,26.902913;100.433438,26.995613;100.833117,27.687681;100.835257,27.700737;100.8294,27.677815;100.875362,27.713895;100.781065,27.745058;100.768959,27.743071;100.766737,27.683493;100.20284,26.92391;100.203007,26.927677;100.233536,26.8861",
+    "error": ""
+  },
+  {
+    "time": "2026-06-29T23:25:16",
+    "type": "static_map",
+    "called_api": true,
+    "ok": true,
+    "masked_url": "https://restapi.amap.com/v3/staticmap?key=***&location=100.462965,27.232217&zoom=9&size=750*1000&scale=2&markers=mid,0x2f80ed,1:100.232095,26.872997|mid,0x2f80ed,2:100.234916,26.878179|mid,0x2f80ed,3:100.218760,26.958873|mid,0x2f80ed,4:100.219201,26.960691|mid,0x2f80ed,5:100.219134,26.963704|mid,0x2f80ed,6:100.216349,26.957503|mid,0x2f80ed,7:100.230203,26.902913|mid,0x2f80ed,8:100.433438,26.995613|mid,0x2f80ed,9:100.833117,27.687681|mid,0x2f80ed,A:100.835257,27.700737&labels=01.%E4%B8%BD%E6%B1%9F%E5%8F%A4%E5%9F%8E-%E6%96%87%E6%98%8C%E5%AE%AB,0,1,14,0xFFFFFF,0x2f80ed:100.232095,26.872997|02.%E6%B8%85%E7%9C%9F%E5%AF%BA%28%E5%8C%97%E9%97%A8%E5%9D%A1%29,0,1,14,0xFFFFFF,0x2f80ed:100.234916,26.878179|03.%E9%9B%AA%E6%B4%9B%E8%BD%BB%E5%A5%A2%C2%B7%E6%97%A5%E7%85%A7%E9%87%91,0,1,14,0xFFFFFF,0x2f80ed:100.218760,26.958873|04.%E4%B8%BA%E5%B1%B1%E8%80%8C%E6%9D%A5%E8%A7%82%E6%99%AF%E6%B0%91%E5%AE%BF,0,1,14,0xFFFFFF,0x2f80ed:100.219201,26.960691|05.%E5%90%91%E9%98%B3,0,1,14,0xFFFFFF,0x2f80ed:100.219134,26.963704|06.%E7%8E%89%E9%BE%99%E7%BA%B3%E8%A5%BF%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8E%BF,0,1,14,0xFFFFFF,0x2f80ed:100.216349,26.957503|07.%E6%B8%85%E6%BA%AA%E5%85%AC%E5%9B%AD,0,1,14,0xFFFFFF,0x2f80ed:100.230203,26.902913|08.%E6%A0%91%E5%BA%95,0,1,14,0xFFFFFF,0x2f80ed:100.433438,26.995613|09.%E6%B3%B8%E6%B2%BD%E6%B9%96%E5%9B%BD%E5%AE%B6%E7%BA%A7%E9%A3%8E%E6%99%AF,0,1,14,0xFFFFFF,0x2f80ed:100.833117,27.687681|10.%E7%9B%B4%E7%8E%9B%E6%AC%A1%E5%B0%94%E4%BA%AD,0,1,14,0xFFFFFF,0x2f80ed:100.835257,27.700737&paths=8,0x38a169,0.75,,:100.232095,26.872997;100.234916,26.878179;100.21876,26.958873;100.219201,26.960691;100.219134,26.963704;100.216349,26.957503;100.230203,26.902913;100.433438,26.995613;100.833117,27.687681;100.835257,27.700737;100.8294,27.677815;100.875362,27.713895;100.781065,27.745058;100.768959,27.743071;100.766737,27.683493;100.20284,26.92391;100.203007,26.927677;100.233536,26.8861",
+    "error": ""
+  }
+]

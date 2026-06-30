@@ -1,0 +1,9 @@
+.env
+.env.local
+.env.local.example
+*.key
+secrets.json
+__pycache__/
+*.pyc
+.DS_Store
+assets/geo_album/source_photos/original/
