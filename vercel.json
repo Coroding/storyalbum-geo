@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/demo-site/",
+      "permanent": false
+    }
+  ]
+}

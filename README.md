@@ -37,7 +37,10 @@ python scripts/validate_geo_album.py
 
 Open `demo-site/index.html` directly.
 
+## Deploy To Vercel
+
+Use the repository root as the Vercel root directory. The root `index.html` redirects to `demo-site/`, and all page images are bundled under `demo-site/assets/geo_album/`.
+
 ## Notes
 
 Photos usually store WGS84 GPS coordinates, while AMap uses GCJ-02. This MVP records that offset risk and can be upgraded with coordinate conversion or route planning APIs.
-

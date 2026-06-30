@@ -2,12 +2,12 @@ window.STORYALBUM_GEO_DATA = {
   "title": "我的旅行路线回忆",
   "subtitle": "基于照片地理信息自动生成",
   "type": "geo_memory_album",
-  "cover": "../assets/geo_album/source_photos/selected/cover_IMG_20251230_191917.jpg",
+  "cover": "assets/geo_album/source_photos/selected/cover_IMG_20251230_191917.jpg",
   "map": {
     "preferred": "amap_static",
-    "amapStatic": "../assets/geo_album/maps/amap/geo_route_amap.png",
-    "fallback": "../assets/geo_album/maps/styled/cute_geo_route.svg",
-    "fallbackPng": "../assets/geo_album/maps/styled/cute_geo_route.png",
+    "amapStatic": "assets/geo_album/maps/amap/geo_route_amap.png",
+    "fallback": "assets/geo_album/maps/styled/cute_geo_route.svg",
+    "fallbackPng": "assets/geo_album/maps/styled/cute_geo_route.png",
     "note": "地图结果已缓存，本页不在前端请求高德 API"
   },
   "stops": [
@@ -53,7 +53,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:30 19:19:17",
           "width": 4896,
           "height": 6528,
-          "src": "../assets/geo_album/source_photos/selected/stop01_01_IMG_20251230_191917.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop01_01_IMG_20251230_191917.jpg"
         },
         {
           "filename": "IMG_20251230_192243.jpg",
@@ -61,7 +61,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:30 19:22:43",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop01_02_IMG_20251230_192243.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop01_02_IMG_20251230_192243.jpg"
         }
       ],
       "caption": "第一站：旅程开始",
@@ -120,7 +120,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:30 19:59:05",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop02_01_IMG_20251230_195905.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop02_01_IMG_20251230_195905.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -168,7 +168,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 10:39:47",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop03_01_IMG_20251231_103947.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop03_01_IMG_20251231_103947.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -216,7 +216,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 11:00:21",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop04_01_IMG_20251231_110021.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop04_01_IMG_20251231_110021.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -264,7 +264,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 11:34:39",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop05_01_IMG_20251231_113439.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop05_01_IMG_20251231_113439.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -328,7 +328,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 12:00:24",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop06_01_IMG_20251231_120024.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop06_01_IMG_20251231_120024.jpg"
         },
         {
           "filename": "IMG_20251231_120719.jpg",
@@ -336,7 +336,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 12:07:19",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop06_02_IMG_20251231_120719.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop06_02_IMG_20251231_120719.jpg"
         },
         {
           "filename": "IMG_20251231_120933.jpg",
@@ -344,7 +344,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 12:09:33",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop06_03_IMG_20251231_120933.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop06_03_IMG_20251231_120933.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -398,7 +398,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 13:31:18",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop07_01_MVIMG_20251231_133118.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop07_01_MVIMG_20251231_133118.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -446,7 +446,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2025:12:31 16:20:19",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop08_01_IMG_20251231_162019.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop08_01_IMG_20251231_162019.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -500,7 +500,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 07:48:03",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop09_01_IMG_20260101_074803.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop09_01_IMG_20260101_074803.jpg"
         },
         {
           "filename": "IMG_20260101_080227.jpg",
@@ -508,7 +508,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 08:02:27",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop09_02_IMG_20260101_080227.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop09_02_IMG_20260101_080227.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -562,7 +562,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 08:07:02",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop10_01_IMG_20260101_080702.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop10_01_IMG_20260101_080702.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -616,7 +616,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 08:34:05",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop11_01_IMG_20260101_083405.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop11_01_IMG_20260101_083405.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -670,7 +670,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 09:13:13",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop12_01_IMG_20260101_091313.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop12_01_IMG_20260101_091313.jpg"
         },
         {
           "filename": "IMG_20260101_092016.jpg",
@@ -678,7 +678,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 09:20:16",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop12_02_IMG_20260101_092016.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop12_02_IMG_20260101_092016.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -732,7 +732,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 10:28:37",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop13_01_IMG_20260101_102837.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop13_01_IMG_20260101_102837.jpg"
         },
         {
           "filename": "IMG_20260101_102853.jpg",
@@ -740,7 +740,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 10:28:53",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop13_02_IMG_20260101_102853.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop13_02_IMG_20260101_102853.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -799,7 +799,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 10:44:25",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop14_01_IMG_20260101_104425.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop14_01_IMG_20260101_104425.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -853,7 +853,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:01 12:10:48",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop15_01_MVIMG_20260101_121048.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop15_01_MVIMG_20260101_121048.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -912,7 +912,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:02 10:31:32",
           "width": 2304,
           "height": 4096,
-          "src": "../assets/geo_album/source_photos/selected/stop16_01_IMG_20260102_103132.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop16_01_IMG_20260102_103132.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -960,7 +960,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:02 12:32:37",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop17_01_IMG_20260102_123237.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop17_01_IMG_20260102_123237.jpg"
         }
       ],
       "caption": "中间站：沿途停留",
@@ -1014,7 +1014,7 @@ window.STORYALBUM_GEO_DATA = {
           "datetime_original": "2026:01:02 15:23:21",
           "width": 4096,
           "height": 2304,
-          "src": "../assets/geo_album/source_photos/selected/stop18_01_IMG_20260102_152321.jpg"
+          "src": "assets/geo_album/source_photos/selected/stop18_01_IMG_20260102_152321.jpg"
         }
       ],
       "caption": "最后一站：路线收尾",
@@ -1042,7 +1042,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/01_IMG_20251230_191917.jpg"
+      "src": "assets/geo_album/source_photos/selected/01_IMG_20251230_191917.jpg"
     },
     {
       "filename": "IMG_20251230_192243.jpg",
@@ -1058,7 +1058,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/02_IMG_20251230_192243.jpg"
+      "src": "assets/geo_album/source_photos/selected/02_IMG_20251230_192243.jpg"
     },
     {
       "filename": "IMG_20251230_195905.jpg",
@@ -1074,7 +1074,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/03_IMG_20251230_195905.jpg"
+      "src": "assets/geo_album/source_photos/selected/03_IMG_20251230_195905.jpg"
     },
     {
       "filename": "IMG_20251231_103947.jpg",
@@ -1090,7 +1090,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/04_IMG_20251231_103947.jpg"
+      "src": "assets/geo_album/source_photos/selected/04_IMG_20251231_103947.jpg"
     },
     {
       "filename": "IMG_20251231_110021.jpg",
@@ -1106,7 +1106,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/05_IMG_20251231_110021.jpg"
+      "src": "assets/geo_album/source_photos/selected/05_IMG_20251231_110021.jpg"
     },
     {
       "filename": "IMG_20251231_113439.jpg",
@@ -1122,7 +1122,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/06_IMG_20251231_113439.jpg"
+      "src": "assets/geo_album/source_photos/selected/06_IMG_20251231_113439.jpg"
     },
     {
       "filename": "IMG_20251231_120024.jpg",
@@ -1138,7 +1138,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/07_IMG_20251231_120024.jpg"
+      "src": "assets/geo_album/source_photos/selected/07_IMG_20251231_120024.jpg"
     },
     {
       "filename": "IMG_20251231_120719.jpg",
@@ -1154,7 +1154,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/08_IMG_20251231_120719.jpg"
+      "src": "assets/geo_album/source_photos/selected/08_IMG_20251231_120719.jpg"
     },
     {
       "filename": "IMG_20251231_120933.jpg",
@@ -1170,7 +1170,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/09_IMG_20251231_120933.jpg"
+      "src": "assets/geo_album/source_photos/selected/09_IMG_20251231_120933.jpg"
     },
     {
       "filename": "MVIMG_20251231_133118.jpg",
@@ -1186,7 +1186,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/10_MVIMG_20251231_133118.jpg"
+      "src": "assets/geo_album/source_photos/selected/10_MVIMG_20251231_133118.jpg"
     },
     {
       "filename": "IMG_20251231_162019.jpg",
@@ -1202,7 +1202,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/11_IMG_20251231_162019.jpg"
+      "src": "assets/geo_album/source_photos/selected/11_IMG_20251231_162019.jpg"
     },
     {
       "filename": "IMG_20260101_074803.jpg",
@@ -1218,7 +1218,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/12_IMG_20260101_074803.jpg"
+      "src": "assets/geo_album/source_photos/selected/12_IMG_20260101_074803.jpg"
     },
     {
       "filename": "IMG_20260101_080227.jpg",
@@ -1234,7 +1234,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/13_IMG_20260101_080227.jpg"
+      "src": "assets/geo_album/source_photos/selected/13_IMG_20260101_080227.jpg"
     },
     {
       "filename": "IMG_20260101_080702.jpg",
@@ -1250,7 +1250,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/14_IMG_20260101_080702.jpg"
+      "src": "assets/geo_album/source_photos/selected/14_IMG_20260101_080702.jpg"
     },
     {
       "filename": "IMG_20260101_083405.jpg",
@@ -1266,7 +1266,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/15_IMG_20260101_083405.jpg"
+      "src": "assets/geo_album/source_photos/selected/15_IMG_20260101_083405.jpg"
     },
     {
       "filename": "IMG_20260101_091313.jpg",
@@ -1282,7 +1282,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/16_IMG_20260101_091313.jpg"
+      "src": "assets/geo_album/source_photos/selected/16_IMG_20260101_091313.jpg"
     },
     {
       "filename": "IMG_20260101_092016.jpg",
@@ -1298,7 +1298,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/17_IMG_20260101_092016.jpg"
+      "src": "assets/geo_album/source_photos/selected/17_IMG_20260101_092016.jpg"
     },
     {
       "filename": "IMG_20260101_102837.jpg",
@@ -1314,7 +1314,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/18_IMG_20260101_102837.jpg"
+      "src": "assets/geo_album/source_photos/selected/18_IMG_20260101_102837.jpg"
     },
     {
       "filename": "IMG_20260101_102853.jpg",
@@ -1330,7 +1330,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/19_IMG_20260101_102853.jpg"
+      "src": "assets/geo_album/source_photos/selected/19_IMG_20260101_102853.jpg"
     },
     {
       "filename": "IMG_20260101_104425.jpg",
@@ -1346,7 +1346,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/20_IMG_20260101_104425.jpg"
+      "src": "assets/geo_album/source_photos/selected/20_IMG_20260101_104425.jpg"
     },
     {
       "filename": "MVIMG_20260101_121048.jpg",
@@ -1362,7 +1362,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/21_MVIMG_20260101_121048.jpg"
+      "src": "assets/geo_album/source_photos/selected/21_MVIMG_20260101_121048.jpg"
     },
     {
       "filename": "IMG_20260102_103132.jpg",
@@ -1378,7 +1378,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/22_IMG_20260102_103132.jpg"
+      "src": "assets/geo_album/source_photos/selected/22_IMG_20260102_103132.jpg"
     },
     {
       "filename": "IMG_20260102_123237.jpg",
@@ -1394,7 +1394,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/23_IMG_20260102_123237.jpg"
+      "src": "assets/geo_album/source_photos/selected/23_IMG_20260102_123237.jpg"
     },
     {
       "filename": "IMG_20260102_152321.jpg",
@@ -1410,7 +1410,7 @@ window.STORYALBUM_GEO_DATA = {
       "selected": true,
       "notes": "",
       "sort_time": "",
-      "src": "../assets/geo_album/source_photos/selected/24_IMG_20260102_152321.jpg"
+      "src": "assets/geo_album/source_photos/selected/24_IMG_20260102_152321.jpg"
     }
   ],
   "stats": {
