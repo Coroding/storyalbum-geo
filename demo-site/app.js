@@ -38,7 +38,38 @@ const renderMapComparison = (album) => {
   const styled = album.map?.fallback || album.map?.fallbackPng || album.map?.amapStatic;
   setImage("#amapRouteMap", amap, "暂无原始高德地图底图");
   setImage("#styledRouteMap", styled, "暂无风格化路线图");
-  document.querySelector("#mapNote").textContent = album.map?.note || "地图结果已缓存，本页不在前端请求高德 API。";
+  document.querySelector("#mapNote").textContent =
+    album.map?.note || "地图结果已缓存，本页不在前端请求高德 API；风格化地图基于真实点位相对位置生成，不是精确导航路线。";
+  renderProjectionDebug(album.map?.projectionMetadata);
+};
+
+const renderProjectionDebug = (metadataUrl) => {
+  const panel = document.querySelector("#projectionDebug pre");
+  if (!panel) return;
+  if (!metadataUrl) {
+    panel.textContent = "projection metadata: not configured";
+    return;
+  }
+  fetch(metadataUrl)
+    .then((response) => {
+      if (!response.ok) throw new Error(`Failed to load ${metadataUrl}`);
+      return response.json();
+    })
+    .then((meta) => {
+      panel.textContent = [
+        `stop count: ${meta.points?.length ?? 0}`,
+        `projection mode: ${meta.mode}`,
+        `inspection: ${meta.inspection}`,
+        `source count: ${JSON.stringify(meta.source_counts || {})}`,
+        `minLng / maxLng: ${meta.bbox?.min_lng} / ${meta.bbox?.max_lng}`,
+        `minLat / maxLat: ${meta.bbox?.min_lat} / ${meta.bbox?.max_lat}`,
+        `label count: ${meta.label_count}`,
+        `hidden label count: ${meta.hidden_label_count}`,
+      ].join("\n");
+    })
+    .catch((error) => {
+      panel.textContent = error.message;
+    });
 };
 
 const renderStops = (stops = []) => {
@@ -100,4 +131,3 @@ if (window.STORYALBUM_GEO_DATA) {
       document.querySelector("main").insertAdjacentHTML("afterbegin", `<section class="section"><div class="empty">${error.message}</div></section>`);
     });
 }
-

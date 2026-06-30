@@ -78,10 +78,19 @@
                 <h3>风格化路线图</h3>
               </div>
             </div>
+            <div class="map-badges">
+              <span>基于真实点位相对位置</span>
+              <span>relative-position based</span>
+            </div>
             <img id="styledRouteMap" alt="风格化旅行路线图" />
+            <p class="panel-note">风格化地图保留点位相对方位与顺序，用于旅行相册展示；不是精确导航路线。</p>
           </article>
         </div>
         <p id="mapNote" class="map-note">地图结果已缓存，本页不在前端请求高德 API。</p>
+        <details id="projectionDebug" class="debug-panel">
+          <summary>Projection debug</summary>
+          <pre>等待本地投影元数据...</pre>
+        </details>
       </section>
 
       <section id="story-stops" class="section">
@@ -136,4 +145,3 @@
     <script src="app.js"></script>
   </body>
 </html>
-

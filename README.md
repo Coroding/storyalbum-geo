@@ -10,6 +10,16 @@ StoryAlbum Geo is a photo-GPS travel memory album generator. It reads EXIF GPS f
 - Cached AMap static map plus a stylized album route map.
 - A static `demo-site/index.html` showcase with route cards and photo wall.
 
+## Stylized Route Projection
+
+`scripts/stylize_geo_route.py` uses `scripts/route_projection.py` to build the Album Style map from real stop coordinates in `assets/geo_album/meta/geo_stops_enriched.json`.
+
+- `coordinate-based`: uses EXIF/GPS stop coordinates and local projection.
+- `cached-based`: reserved for cached geocode or marker coordinates.
+- `order-based fallback`: used only when coordinates are missing, and marked as estimated.
+
+The stylized map preserves relative point direction and route order for album display. It is not an exact navigation route and does not make any frontend AMap API request.
+
 ## API Key
 
 Create `.env.local` in the project root:

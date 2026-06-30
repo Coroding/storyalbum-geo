@@ -8,7 +8,8 @@
     "amapStatic": "assets/geo_album/maps/amap/geo_route_amap.png",
     "fallback": "assets/geo_album/maps/styled/cute_geo_route.svg",
     "fallbackPng": "assets/geo_album/maps/styled/cute_geo_route.png",
-    "note": "地图结果已缓存，本页不在前端请求高德 API"
+    "projectionMetadata": "assets/geo_album/maps/styled/cute_geo_route_projection.json",
+    "note": "地图结果已缓存，本页不在前端请求高德 API；右侧风格化地图基于真实点位相对位置生成，不是精确导航路线。"
   },
   "stops": [
     {
@@ -1427,6 +1428,7 @@
   },
   "notes": [
     "照片 EXIF GPS 通常为 WGS84；高德地图使用 GCJ-02，当前 MVP 可能存在坐标偏移。",
-    "所有高德 API 请求都在 Python 脚本中完成；前端只读取本地 JSON 和缓存图片。"
+    "所有高德 API 请求都在 Python 脚本中完成；前端只读取本地 JSON 和缓存图片。",
+    "Album Style 风格化路线图使用本地坐标投影，保留真实点位相对方位与顺序；标签拥挤时主图最多展示 8 个文字标签。"
   ]
 }

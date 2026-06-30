@@ -1,136 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="750" height="1000" viewBox="0 0 750 1000">
-  <rect width="750" height="1000" fill="#f8fcf6"/>
-  <circle cx="620" cy="120" r="110" fill="#dff3ff"/>
-  <circle cx="100" cy="840" r="140" fill="#e1f7e8"/>
-  <path d="M 210 160 Q 360 112 510 204 Q 360 156 210 249 Q 360 202 510 294 Q 360 246 210 338 Q 360 290 510 383 Q 360 336 210 428 Q 360 380 510 472 Q 360 424 210 517 Q 360 470 510 562 Q 360 514 210 607 Q 360 559 510 651 Q 360 604 210 696 Q 360 648 510 741 Q 360 693 210 785 Q 360 738 510 830 Q 360 782 210 875 Q 360 828 510 920 " fill="none" stroke="#55a6d9" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.28"/>
-  <path d="M 210 160 Q 360 112 510 204 Q 360 156 210 249 Q 360 202 510 294 Q 360 246 210 338 Q 360 290 510 383 Q 360 336 210 428 Q 360 380 510 472 Q 360 424 210 517 Q 360 470 510 562 Q 360 514 210 607 Q 360 559 510 651 Q 360 604 210 696 Q 360 648 510 741 Q 360 693 210 785 Q 360 738 510 830 Q 360 782 210 875 Q 360 828 510 920 " fill="none" stroke="#2f80a8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="54" y="76" font-size="32" font-weight="800" fill="#174b6d">StoryAlbum Geo</text>
-  <text x="54" y="112" font-size="18" fill="#5a7d8f">路线示意 · 本地图形降级方案</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="680" viewBox="0 0 1000 680" role="img" aria-labelledby="title desc">
+  <title id="title">StoryAlbum Geo Album Style Route Map</title>
+  <desc id="desc">基于真实点位相对位置的风格化路线示意图，不是精确导航路线。</desc>
+  <style>
+    :root {
+      --map-bg: #f7f1df;
+      --map-paper: #fffaf0;
+      --map-green: #b9d99a;
+      --map-water: #a9d8f5;
+      --route-main: #4fa787;
+      --route-shadow: rgba(35, 111, 88, 0.18);
+      --start: #f59e0b;
+      --end: #38bdf8;
+      --ink: #264653;
+      --muted: #6b7280;
+      --card: #ffffff;
+    }
+    text { font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif; }
+    .route-point:hover + .route-label rect,
+    .route-point:focus + .route-label rect { stroke: #4fa787; stroke-width: 2; }
+  </style>
+  <rect width="1000" height="680" rx="34" fill="var(--map-bg)"/>
+  <path d="M0 108 C180 74 290 126 416 80 C578 20 722 62 1000 18 L1000 0 L0 0 Z" fill="#eff8df" opacity="0.85"/>
+  <path d="M42 488 C174 444 248 496 376 462 C518 424 626 472 770 438 C864 416 928 438 1000 402 L1000 680 L0 680 Z" fill="#e4f4dc" opacity="0.95"/>
+  <path d="M678 126 C758 70 904 80 940 160 C978 244 880 308 780 288 C692 270 606 188 678 126 Z" fill="var(--map-water)" opacity="0.68"/>
+  <path d="M700 164 C760 126 872 128 908 182" fill="none" stroke="#ffffff" stroke-width="8" opacity="0.48" stroke-linecap="round"/>
+  <path d="M108 340 C196 268 290 304 358 242 C420 186 478 202 548 160" fill="none" stroke="#a9d8f5" stroke-width="13" opacity="0.38" stroke-linecap="round"/>
+  <circle cx="138" cy="128" r="58" fill="#fff5cb" opacity="0.72"/>
+  <circle cx="186" cy="86" r="7" fill="#f6c76f"/>
+  <circle cx="834" cy="92" r="6" fill="#f6c76f"/>
+  <path d="M86 210 l18 -10 l18 10 l-18 10 Z" fill="#f59e0b" opacity="0.7"/>
+  <path d="M904 352 l15 -9 l15 9 l-15 9 Z" fill="#38bdf8" opacity="0.72"/>
+  <g opacity="0.28">
+    <path d="M46 72 h100 M72 108 h82 M810 532 h120 M768 568 h156" stroke="#d6cba7" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <text x="42" y="58" font-size="30" font-weight="900" fill="var(--ink)">Album Style Route</text>
+  <text x="42" y="88" font-size="15" font-weight="700" fill="var(--muted)">基于真实点位相对位置 · 不含前端高德 API 请求</text>
+  <g transform="translate(760 34)">
+    <rect width="196" height="32" rx="16" fill="#ffffff" opacity="0.84"/>
+    <text x="18" y="21" font-size="13" font-weight="900" fill="#4fa787">coordinate-based</text>
+  </g>
+  <path d="M 329.7 612.0 Q 335.0 641.9 340.3 615.8 Q 331.3 563.1 322.3 558.4 Q 326.9 589.4 331.6 564.3 Q 336.0 542.9 340.5 569.4 Q 341.8 601.3 343.0 577.3 Q 346.8 570.3 350.7 611.3 Q 396.0 601.4 441.4 535.5 Q 552.2 295.6 663.1 103.8 Q 668.2 131.2 673.3 102.7 Q 676.1 89.3 679.0 124.0 Q 691.8 140.7 704.5 101.4" fill="none" stroke="#236f58" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" opacity="0.16"/>
+  <path d="M 329.7 612.0 Q 335.0 641.9 340.3 615.8 Q 331.3 563.1 322.3 558.4 Q 326.9 589.4 331.6 564.3 Q 336.0 542.9 340.5 569.4 Q 341.8 601.3 343.0 577.3 Q 346.8 570.3 350.7 611.3 Q 396.0 601.4 441.4 535.5 Q 552.2 295.6 663.1 103.8 Q 668.2 131.2 673.3 102.7 Q 676.1 89.3 679.0 124.0 Q 691.8 140.7 704.5 101.4" fill="none" stroke="var(--route-main)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M 329.7 612.0 Q 335.0 641.9 340.3 615.8 Q 331.3 563.1 322.3 558.4 Q 326.9 589.4 331.6 564.3 Q 336.0 542.9 340.5 569.4 Q 341.8 601.3 343.0 577.3 Q 346.8 570.3 350.7 611.3 Q 396.0 601.4 441.4 535.5 Q 552.2 295.6 663.1 103.8 Q 668.2 131.2 673.3 102.7 Q 676.1 89.3 679.0 124.0 Q 691.8 140.7 704.5 101.4" fill="none" stroke="#fffaf0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/>
+  <path d="M 704.5 101.4 Q 669.4 112.7 634.2 68.0 Q 635.4 48.1 636.5 76.2 Q 631.4 119.3 626.3 106.4 Q 480.9 328.3 335.5 598.2 Q 335.5 625.1 335.6 595.9 Q 344.0 584.9 352.5 621.8" fill="none" stroke="#236f58" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="12 14" opacity="0.12"/>
+  <path d="M 704.5 101.4 Q 669.4 112.7 634.2 68.0 Q 635.4 48.1 636.5 76.2 Q 631.4 119.3 626.3 106.4 Q 480.9 328.3 335.5 598.2 Q 335.5 625.1 335.6 595.9 Q 344.0 584.9 352.5 621.8" fill="none" stroke="#4fa787" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="10 13" opacity="0.58"/>
   
-  <g>
-    <circle cx="210" cy="160" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="160" r="26" fill="#9bd9c3"/>
-    <text x="210" y="168" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">01</text>
-    <rect x="264" y="141" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="167" font-size="17" font-weight="700" fill="#174b6d">丽江古城-文昌宫观景</text>
+  <g class="route-point" tabindex="0" aria-label="丽江古城-文昌宫观景台｜照片 2｜exact">
+    <title>丽江古城-文昌宫观景台｜照片 2｜exact</title>
+    <circle cx="329.7" cy="612.0" r="18" fill="#fff7df" stroke="#f59e0b" stroke-width="5"/>
+    <circle cx="329.7" cy="612.0" r="5" fill="#f59e0b"/>
+    <text x="329.7" y="618.0" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">01</text>
+  </g>
+  <g class="route-label">
+    <rect x="343.7" y="562.0" width="158" height="36" rx="15" fill="#fffaf0" stroke="#d7ead4"/>
+    <text x="357.7" y="585.0" font-size="15" font-weight="800" fill="#264653">丽江古城-文昌宫观景</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="清真寺(北门坡)｜照片 1｜exact">
+    <title>清真寺(北门坡)｜照片 1｜exact</title>
+    <circle cx="340.3" cy="615.8" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="340.3" cy="615.8" r="5" fill="#4fa787"/>
+    <text x="340.3" y="621.8" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">02</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="雪洛轻奢·日照金山丨设计师民宿SnowMountainSceneryVilla｜照片 1｜exact">
+    <title>雪洛轻奢·日照金山丨设计师民宿SnowMountainSceneryVilla｜照片 1｜exact</title>
+    <circle cx="322.3" cy="558.4" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="322.3" cy="558.4" r="5" fill="#4fa787"/>
+    <text x="322.3" y="564.4" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">03</text>
+  </g>
+  <g class="route-label">
+    <rect x="340.3" y="540.4" width="158" height="36" rx="15" fill="#fffaf0" stroke="#d7ead4"/>
+    <text x="354.3" y="563.4" font-size="15" font-weight="800" fill="#264653">雪洛轻奢·日照金山丨</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="为山而来观景民宿(白沙古镇店)｜照片 1｜exact">
+    <title>为山而来观景民宿(白沙古镇店)｜照片 1｜exact</title>
+    <circle cx="331.6" cy="564.3" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="331.6" cy="564.3" r="5" fill="#4fa787"/>
+    <text x="331.6" y="570.3" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">04</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="向阳｜照片 1｜exact">
+    <title>向阳｜照片 1｜exact</title>
+    <circle cx="340.5" cy="569.4" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="340.5" cy="569.4" r="5" fill="#4fa787"/>
+    <text x="340.5" y="575.4" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">05</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="玉龙纳西族自治县白沙镇幼儿园｜照片 3｜exact">
+    <title>玉龙纳西族自治县白沙镇幼儿园｜照片 3｜exact</title>
+    <circle cx="343.0" cy="577.3" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="343.0" cy="577.3" r="5" fill="#4fa787"/>
+    <text x="343.0" y="583.3" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">06</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="清溪公园｜照片 1｜exact">
+    <title>清溪公园｜照片 1｜exact</title>
+    <circle cx="350.7" cy="611.3" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="350.7" cy="611.3" r="5" fill="#4fa787"/>
+    <text x="350.7" y="617.3" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">07</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="树底｜照片 1｜exact">
+    <title>树底｜照片 1｜exact</title>
+    <circle cx="441.4" cy="535.5" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="441.4" cy="535.5" r="5" fill="#4fa787"/>
+    <text x="441.4" y="541.5" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">08</text>
+  </g>
+  <g class="route-label">
+    <rect x="362.4" y="479.5" width="158" height="36" rx="15" fill="#fffaf0" stroke="#d7ead4"/>
+    <text x="376.4" y="502.5" font-size="15" font-weight="800" fill="#264653">树底</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="泸沽湖国家级风景名胜区-洛洼南古村落｜照片 2｜exact">
+    <title>泸沽湖国家级风景名胜区-洛洼南古村落｜照片 2｜exact</title>
+    <circle cx="663.1" cy="103.8" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="663.1" cy="103.8" r="5" fill="#4fa787"/>
+    <text x="663.1" y="109.8" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">09</text>
+  </g>
+  <g class="route-label">
+    <rect x="487.1" y="106.0" width="158" height="36" rx="15" fill="#fffaf0" stroke="#d7ead4"/>
+    <text x="501.1" y="129.0" font-size="15" font-weight="800" fill="#264653">泸沽湖国家级风景名胜</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="直玛次尔亭｜照片 1｜exact">
+    <title>直玛次尔亭｜照片 1｜exact</title>
+    <circle cx="673.3" cy="102.7" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="673.3" cy="102.7" r="5" fill="#4fa787"/>
+    <text x="673.3" y="108.7" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">10</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="官地花海码头｜照片 1｜exact">
+    <title>官地花海码头｜照片 1｜exact</title>
+    <circle cx="679.0" cy="124.0" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="679.0" cy="124.0" r="5" fill="#4fa787"/>
+    <text x="679.0" y="129.9" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">11</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="泸沽湖景区-雍仲林寺(喇塔贡巴)｜照片 2｜exact">
+    <title>泸沽湖景区-雍仲林寺(喇塔贡巴)｜照片 2｜exact</title>
+    <circle cx="704.5" cy="101.4" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="704.5" cy="101.4" r="5" fill="#4fa787"/>
+    <text x="704.5" y="107.4" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">12</text>
+  </g>
+  <g class="route-label">
+    <rect x="528.5" y="106.0" width="158" height="36" rx="15" fill="#fffaf0" stroke="#d7ead4"/>
+    <text x="542.5" y="129.0" font-size="15" font-weight="800" fill="#264653">泸沽湖景区-雍仲林寺</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="泸沽湖风景名胜区出水洞｜照片 2｜exact">
+    <title>泸沽湖风景名胜区出水洞｜照片 2｜exact</title>
+    <circle cx="634.2" cy="68.0" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="634.2" cy="68.0" r="5" fill="#4fa787"/>
+    <text x="634.2" y="74.0" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">13</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="小洛水(建设中)｜照片 1｜exact">
+    <title>小洛水(建设中)｜照片 1｜exact</title>
+    <circle cx="636.5" cy="76.2" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="636.5" cy="76.2" r="5" fill="#4fa787"/>
+    <text x="636.5" y="82.2" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">14</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="次第花开客栈(泸沽湖大落水店)｜照片 1｜exact">
+    <title>次第花开客栈(泸沽湖大落水店)｜照片 1｜exact</title>
+    <circle cx="626.3" cy="106.4" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="626.3" cy="106.4" r="5" fill="#4fa787"/>
+    <text x="626.3" y="112.4" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">15</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="茶马古道博物馆｜照片 1｜exact">
+    <title>茶马古道博物馆｜照片 1｜exact</title>
+    <circle cx="335.5" cy="598.2" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="335.5" cy="598.2" r="5" fill="#4fa787"/>
+    <text x="335.5" y="604.2" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">16</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="丽江束河塘舍精品客栈｜照片 1｜exact">
+    <title>丽江束河塘舍精品客栈｜照片 1｜exact</title>
+    <circle cx="335.6" cy="595.9" r="18" fill="#ffffff" stroke="#4fa787" stroke-width="5"/>
+    <circle cx="335.6" cy="595.9" r="5" fill="#4fa787"/>
+    <text x="335.6" y="601.9" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">17</text>
+  </g>
+  <g class="route-point" tabindex="0" aria-label="丽江市博物院｜照片 1｜exact">
+    <title>丽江市博物院｜照片 1｜exact</title>
+    <circle cx="352.5" cy="621.8" r="18" fill="#e8f7ff" stroke="#38bdf8" stroke-width="5"/>
+    <circle cx="352.5" cy="621.8" r="5" fill="#38bdf8"/>
+    <text x="352.5" y="627.8" text-anchor="middle" font-size="13" font-weight="900" fill="#264653">18</text>
+  </g>
+  <g class="route-label">
+    <rect x="366.5" y="571.8" width="158" height="36" rx="15" fill="#fffaf0" stroke="#d7ead4"/>
+    <text x="380.5" y="594.8" font-size="15" font-weight="800" fill="#264653">丽江市博物院</text>
   </g>
   <g>
-    <circle cx="510" cy="204" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="204" r="26" fill="#9bd9c3"/>
-    <text x="510" y="212" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">02</text>
-    <rect x="266" y="185" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="211" font-size="17" font-weight="700" fill="#174b6d">清真寺(北门坡)</text>
+    <rect x="36" y="520" width="928" height="122" rx="24" fill="#fffaf0" opacity="0.78" stroke="#efe2bd"/>
+    <text x="58" y="552" font-size="15" font-weight="900" fill="#264653">完整停靠点 timeline · 主图隐藏 12 个拥挤标签，可 hover/tap 点位查看</text>
+    <g><rect x="42" y="574" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="52" y="590" font-size="12" font-weight="700" fill="#56726b">01 丽江古城-文昌宫</text></g><g><rect x="194" y="574" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="204" y="590" font-size="12" font-weight="700" fill="#56726b">02 清真寺(北门坡)</text></g><g><rect x="346" y="574" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="356" y="590" font-size="12" font-weight="700" fill="#56726b">03 雪洛轻奢·日照金</text></g><g><rect x="498" y="574" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="508" y="590" font-size="12" font-weight="700" fill="#56726b">04 为山而来观景民宿</text></g><g><rect x="650" y="574" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="660" y="590" font-size="12" font-weight="700" fill="#56726b">05 向阳</text></g><g><rect x="802" y="574" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="812" y="590" font-size="12" font-weight="700" fill="#56726b">06 玉龙纳西族自治县</text></g><g><rect x="42" y="608" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="52" y="624" font-size="12" font-weight="700" fill="#56726b">07 清溪公园</text></g><g><rect x="194" y="608" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="204" y="624" font-size="12" font-weight="700" fill="#56726b">08 树底</text></g><g><rect x="346" y="608" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="356" y="624" font-size="12" font-weight="700" fill="#56726b">09 泸沽湖国家级风景</text></g><g><rect x="498" y="608" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="508" y="624" font-size="12" font-weight="700" fill="#56726b">10 直玛次尔亭</text></g><g><rect x="650" y="608" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="660" y="624" font-size="12" font-weight="700" fill="#56726b">11 官地花海码头</text></g><g><rect x="802" y="608" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="812" y="624" font-size="12" font-weight="700" fill="#56726b">12 泸沽湖景区-雍仲</text></g><g><rect x="42" y="642" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="52" y="658" font-size="12" font-weight="700" fill="#56726b">13 泸沽湖风景名胜区</text></g><g><rect x="194" y="642" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="204" y="658" font-size="12" font-weight="700" fill="#56726b">14 小洛水(建设中)</text></g><g><rect x="346" y="642" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="356" y="658" font-size="12" font-weight="700" fill="#56726b">15 次第花开客栈(泸</text></g><g><rect x="498" y="642" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="508" y="658" font-size="12" font-weight="700" fill="#56726b">16 茶马古道博物馆</text></g><g><rect x="650" y="642" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="660" y="658" font-size="12" font-weight="700" fill="#56726b">17 丽江束河塘舍精品</text></g><g><rect x="802" y="642" width="136" height="24" rx="12" fill="#ffffff" opacity="0.82"/><text x="812" y="658" font-size="12" font-weight="700" fill="#56726b">18 丽江市博物院</text></g>
   </g>
-  <g>
-    <circle cx="210" cy="249" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="249" r="26" fill="#9bd9c3"/>
-    <text x="210" y="257" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">03</text>
-    <rect x="264" y="230" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="256" font-size="17" font-weight="700" fill="#174b6d">雪洛轻奢·日照金山丨</text>
-  </g>
-  <g>
-    <circle cx="510" cy="294" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="294" r="26" fill="#9bd9c3"/>
-    <text x="510" y="302" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">04</text>
-    <rect x="266" y="275" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="301" font-size="17" font-weight="700" fill="#174b6d">为山而来观景民宿(白</text>
-  </g>
-  <g>
-    <circle cx="210" cy="338" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="338" r="26" fill="#9bd9c3"/>
-    <text x="210" y="346" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">05</text>
-    <rect x="264" y="319" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="345" font-size="17" font-weight="700" fill="#174b6d">向阳</text>
-  </g>
-  <g>
-    <circle cx="510" cy="383" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="383" r="26" fill="#9bd9c3"/>
-    <text x="510" y="391" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">06</text>
-    <rect x="266" y="364" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="390" font-size="17" font-weight="700" fill="#174b6d">玉龙纳西族自治县白沙</text>
-  </g>
-  <g>
-    <circle cx="210" cy="428" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="428" r="26" fill="#9bd9c3"/>
-    <text x="210" y="436" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">07</text>
-    <rect x="264" y="409" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="435" font-size="17" font-weight="700" fill="#174b6d">清溪公园</text>
-  </g>
-  <g>
-    <circle cx="510" cy="472" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="472" r="26" fill="#9bd9c3"/>
-    <text x="510" y="480" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">08</text>
-    <rect x="266" y="453" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="479" font-size="17" font-weight="700" fill="#174b6d">树底</text>
-  </g>
-  <g>
-    <circle cx="210" cy="517" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="517" r="26" fill="#9bd9c3"/>
-    <text x="210" y="525" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">09</text>
-    <rect x="264" y="498" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="524" font-size="17" font-weight="700" fill="#174b6d">泸沽湖国家级风景名胜</text>
-  </g>
-  <g>
-    <circle cx="510" cy="562" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="562" r="26" fill="#9bd9c3"/>
-    <text x="510" y="570" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">10</text>
-    <rect x="266" y="543" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="569" font-size="17" font-weight="700" fill="#174b6d">直玛次尔亭</text>
-  </g>
-  <g>
-    <circle cx="210" cy="607" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="607" r="26" fill="#9bd9c3"/>
-    <text x="210" y="615" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">11</text>
-    <rect x="264" y="588" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="614" font-size="17" font-weight="700" fill="#174b6d">官地花海码头</text>
-  </g>
-  <g>
-    <circle cx="510" cy="651" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="651" r="26" fill="#9bd9c3"/>
-    <text x="510" y="659" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">12</text>
-    <rect x="266" y="632" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="658" font-size="17" font-weight="700" fill="#174b6d">泸沽湖景区-雍仲林寺</text>
-  </g>
-  <g>
-    <circle cx="210" cy="696" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="696" r="26" fill="#9bd9c3"/>
-    <text x="210" y="704" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">13</text>
-    <rect x="264" y="677" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="703" font-size="17" font-weight="700" fill="#174b6d">泸沽湖风景名胜区出水</text>
-  </g>
-  <g>
-    <circle cx="510" cy="741" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="741" r="26" fill="#9bd9c3"/>
-    <text x="510" y="749" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">14</text>
-    <rect x="266" y="722" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="748" font-size="17" font-weight="700" fill="#174b6d">小洛水(建设中)</text>
-  </g>
-  <g>
-    <circle cx="210" cy="785" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="785" r="26" fill="#9bd9c3"/>
-    <text x="210" y="793" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">15</text>
-    <rect x="264" y="766" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="792" font-size="17" font-weight="700" fill="#174b6d">次第花开客栈(泸沽湖</text>
-  </g>
-  <g>
-    <circle cx="510" cy="830" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="830" r="26" fill="#9bd9c3"/>
-    <text x="510" y="838" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">16</text>
-    <rect x="266" y="811" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="837" font-size="17" font-weight="700" fill="#174b6d">茶马古道博物馆</text>
-  </g>
-  <g>
-    <circle cx="210" cy="875" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="210" cy="875" r="26" fill="#9bd9c3"/>
-    <text x="210" y="883" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">17</text>
-    <rect x="264" y="856" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="280" y="882" font-size="17" font-weight="700" fill="#174b6d">丽江束河塘舍精品客栈</text>
-  </g>
-  <g>
-    <circle cx="510" cy="920" r="38" fill="#ffffff" stroke="#55a6d9" stroke-width="5"/>
-    <circle cx="510" cy="920" r="26" fill="#9bd9c3"/>
-    <text x="510" y="928" text-anchor="middle" font-size="20" font-weight="800" fill="#174b6d">18</text>
-    <rect x="266" y="901" width="190" height="38" rx="14" fill="#ffffff" stroke="#d7ecf7"/>
-    <text x="282" y="927" font-size="17" font-weight="700" fill="#174b6d">丽江市博物院</text>
-  </g>
+  <text x="42" y="662" font-size="13" fill="#6b7280">风格化地图保留点位相对方位与顺序，用于旅行相册展示；不是精确导航路线。</text>
 </svg>

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import shutil
+from pathlib import Path
 
 from geo_album_utils import (
     CACHE_DIR,
@@ -17,6 +18,8 @@ from geo_album_utils import (
     write_json,
 )
 
+DEMO_ASSETS_DIR = PROJECT_ROOT / "demo-site" / "assets"
+
 
 def _load_stops() -> list[dict]:
     enriched = read_json(META_DIR / "geo_stops_enriched.json", default=None)
@@ -29,12 +32,33 @@ def _load_stops() -> list[dict]:
 def _copy_selected(photo: dict, prefix: str = "") -> str:
     source = PROJECT_ROOT / photo["relative_path"]
     if not source.exists():
-        return relative_to_demo(source)
+        return _demo_relative_asset(source)
     target_name = f"{prefix}{source.name}" if prefix else source.name
     target = SELECTED_DIR / target_name
     if not target.exists():
         shutil.copy2(source, target)
-    return relative_to_demo(target)
+    return _copy_to_demo_assets(target)
+
+
+def _demo_relative_asset(path: str | Path) -> str:
+    path = Path(path)
+    try:
+        relative = path.resolve().relative_to((PROJECT_ROOT / "assets").resolve())
+        return (Path("assets") / relative).as_posix()
+    except ValueError:
+        return relative_to_demo(path)
+
+
+def _copy_to_demo_assets(source: Path) -> str:
+    try:
+        relative = source.resolve().relative_to((PROJECT_ROOT / "assets").resolve())
+    except ValueError:
+        return relative_to_demo(source)
+    target = DEMO_ASSETS_DIR / relative
+    target.parent.mkdir(parents=True, exist_ok=True)
+    if source.exists():
+        shutil.copy2(source, target)
+    return (Path("assets") / relative).as_posix()
 
 
 def main() -> None:
@@ -90,10 +114,11 @@ def main() -> None:
         "cover": cover_path,
         "map": {
             "preferred": preferred,
-            "amapStatic": relative_to_demo(amap_png),
-            "fallback": relative_to_demo(fallback_svg),
-            "fallbackPng": relative_to_demo(MAP_STYLED_DIR / "cute_geo_route.png"),
-            "note": "地图结果已缓存，本页不在前端请求高德 API",
+            "amapStatic": _copy_to_demo_assets(amap_png),
+            "fallback": _copy_to_demo_assets(fallback_svg),
+            "fallbackPng": _copy_to_demo_assets(MAP_STYLED_DIR / "cute_geo_route.png"),
+            "projectionMetadata": _copy_to_demo_assets(MAP_STYLED_DIR / "cute_geo_route_projection.json"),
+            "note": "地图结果已缓存，本页不在前端请求高德 API；右侧风格化地图基于真实点位相对位置生成，不是精确导航路线。",
         },
         "stops": album_stops,
         "photos": all_photos,
@@ -112,6 +137,7 @@ def main() -> None:
         "notes": [
             "照片 EXIF GPS 通常为 WGS84；高德地图使用 GCJ-02，当前 MVP 可能存在坐标偏移。",
             "所有高德 API 请求都在 Python 脚本中完成；前端只读取本地 JSON 和缓存图片。",
+            "Album Style 风格化路线图使用本地坐标投影，保留真实点位相对方位与顺序；标签拥挤时主图最多展示 8 个文字标签。",
         ],
     }
     write_json(DEMO_DATA_DIR / "geo_album.json", album)

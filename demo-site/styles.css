@@ -270,6 +270,7 @@ p {
 }
 
 .map-panel.stylized {
+  grid-template-rows: auto auto 1fr auto;
   background: linear-gradient(180deg, rgba(241, 234, 189, 0.72), rgba(255, 255, 255, 0.92));
 }
 
@@ -303,10 +304,57 @@ p {
   background: linear-gradient(135deg, rgba(147, 203, 228, 0.28), rgba(241, 234, 189, 0.36));
 }
 
+.map-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.map-badges span,
+.panel-note {
+  border-radius: 999px;
+  background: rgba(241, 234, 189, 0.78);
+  color: var(--lake-blue-deep);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.map-badges span {
+  padding: 7px 10px;
+}
+
+.panel-note {
+  margin: 0;
+  padding: 10px 12px;
+  line-height: 1.5;
+}
+
 .map-note {
   margin: 14px 0 0;
   color: var(--lake-blue-deep);
   font-weight: 900;
+}
+
+.debug-panel {
+  margin-top: 12px;
+  border: 1px dashed rgba(55, 114, 190, 0.32);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.62);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.debug-panel summary {
+  cursor: pointer;
+  padding: 10px 12px;
+  font-weight: 900;
+  color: var(--lake-blue-deep);
+}
+
+.debug-panel pre {
+  margin: 0;
+  padding: 0 12px 12px;
+  white-space: pre-wrap;
 }
 
 .stops-list {
@@ -469,4 +517,3 @@ footer {
     max-height: 72vh;
   }
 }
-
