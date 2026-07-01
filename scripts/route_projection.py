@@ -1,14 +1,17 @@
 from __future__ import annotations
 
-from math import cos, radians, sin
+import math
+from html import escape
 from typing import Any
 
 
 VIEWBOX_WIDTH = 1000
 VIEWBOX_HEIGHT = 680
-PADDING_RATIO = 0.1
-LABEL_LIMIT = 8
+LABEL_LIMIT = 6
+MIN_SPAN_X = 0.001
+MIN_SPAN_Y = 0.001
 KEY_LABEL_TERMS = ("丽江", "泸沽湖", "里格", "大落水", "观音峡", "情人滩")
+CANDIDATE_LABEL_POSITIONS = ("top", "top-right", "right", "bottom-right", "bottom", "bottom-left", "left", "top-left")
 
 
 def _to_float(value: Any) -> float | None:
@@ -75,18 +78,30 @@ def resolve_stop_coordinate(stop: dict[str, Any]) -> tuple[float | None, float |
     return None, None, "fallback"
 
 
-def _fallback_points(stops: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    usable_width = VIEWBOX_WIDTH * (1 - PADDING_RATIO * 2)
-    usable_height = VIEWBOX_HEIGHT * (1 - PADDING_RATIO * 2)
-    left = VIEWBOX_WIDTH * PADDING_RATIO
-    top = VIEWBOX_HEIGHT * PADDING_RATIO
-    count = max(len(stops), 1)
+def _mercator_y(lat: float) -> float:
+    clamped = max(-85.0, min(85.0, lat))
+    return math.log(math.tan(math.pi / 4 + math.radians(clamped) / 2))
+
+
+def _map_area(width: int, height: int, padding: dict[str, Any] | None = None) -> dict[str, float]:
+    padding = padding or {}
+    left = _to_float(padding.get("left")) or 72.0
+    right = _to_float(padding.get("right")) or 72.0
+    top = _to_float(padding.get("top")) or 80.0
+    bottom = _to_float(padding.get("bottom")) or 160.0
+    return {"left": left, "right": width - right, "top": top, "bottom": height - bottom}
+
+
+def _order_fallback_points(ordered: list[dict[str, Any]], map_area: dict[str, float]) -> list[dict[str, Any]]:
+    count = max(len(ordered), 1)
+    drawable_w = map_area["right"] - map_area["left"]
+    drawable_h = map_area["bottom"] - map_area["top"]
     points = []
-    for index, stop in enumerate(stops):
+    for index, stop in enumerate(ordered):
         t = index / max(count - 1, 1)
-        x = left + usable_width * (0.12 + 0.76 * t)
-        y = top + usable_height * (0.52 + 0.28 * sin(t * 3.14159 * 1.5))
-        points.append(_make_point(stop, index, x, y, None, None, "fallback", 0.12 + 0.76 * t, y / VIEWBOX_HEIGHT))
+        x = map_area["left"] + drawable_w * (0.08 + 0.84 * t)
+        y = map_area["top"] + drawable_h * (0.52 + 0.22 * math.sin(t * math.pi * 1.35))
+        points.append(_make_point(stop, index, x, y, x, y, None, None, "fallback"))
     return points
 
 
@@ -95,92 +110,287 @@ def _make_point(
     index: int,
     x: float,
     y: float,
+    raw_x: float,
+    raw_y: float,
     lat: float | None,
     lng: float | None,
     confidence: str,
-    normalized_x: float,
-    normalized_y: float,
 ) -> dict[str, Any]:
     photos = stop.get("photos") or []
     order = int(stop.get("order") or index + 1)
-    name = str(stop.get("name") or f"地点 {order:02d}")
     return {
         "order": order,
-        "name": name,
+        "name": str(stop.get("name") or f"地点 {order:02d}"),
+        "caption": str(stop.get("caption") or ""),
         "time": stop.get("start_time") or stop.get("datetime_original") or "",
         "photo_count": int(stop.get("photo_count") or len(photos)),
-        "caption": stop.get("caption") or "",
-        "poi": ((stop.get("pois") or [{}])[0].get("name") if stop.get("pois") else ""),
+        "dataSource": stop.get("dataSource") or stop.get("data_source") or "",
         "lat": lat,
         "lng": lng,
-        "normalized_x": round(normalized_x, 4),
-        "normalized_y": round(normalized_y, 4),
         "x": round(x, 2),
         "y": round(y, 2),
-        "confidence": confidence,
+        "rawX": round(raw_x, 6),
+        "rawY": round(raw_y, 6),
+        "labelX": None,
+        "labelY": None,
+        "labelAnchor": "hidden",
+        "labelConnector": None,
+        "labelWidth": 150,
+        "labelHeight": 38,
+        "labelOffset": stop.get("labelOffset") or {},
+        "hideLabel": bool(stop.get("hideLabel")),
         "show_label": False,
-        "label_position": "right",
+        "isClustered": False,
+        "clusterId": "",
+        "confidence": confidence,
     }
 
 
-def _choose_label_position(point: dict[str, Any], index: int, total: int) -> str:
-    if index == 0:
-        return "right-top" if point["x"] < VIEWBOX_WIDTH * 0.55 else "left-top"
-    if index == total - 1:
-        return "left-top" if point["x"] > VIEWBOX_WIDTH * 0.55 else "right-top"
-    if point["x"] < VIEWBOX_WIDTH * 0.38:
-        return "right"
-    if point["x"] > VIEWBOX_WIDTH * 0.62:
-        return "left"
-    return "bottom" if point["y"] < VIEWBOX_HEIGHT * 0.5 else "top"
+def _expand_span(min_value: float, max_value: float, min_span: float) -> tuple[float, float]:
+    span = max_value - min_value
+    if span >= min_span:
+        return min_value, max_value
+    center = (min_value + max_value) / 2
+    return center - min_span / 2, center + min_span / 2
 
 
-def _apply_visual_jitter(points: list[dict[str, Any]]) -> None:
+def _project_coordinate_points(
+    ordered: list[dict[str, Any]],
+    resolved: list[tuple[int, dict[str, Any], float | None, float | None, str]],
+    width: int,
+    height: int,
+    map_area: dict[str, float],
+    warnings: list[str],
+) -> tuple[list[dict[str, Any]], dict[str, Any], str]:
+    coordinate_items = [(idx, stop, lat, lng, source) for idx, stop, lat, lng, source in resolved if lat is not None and lng is not None]
+    if len(coordinate_items) < 2:
+        warnings.append("not_enough_coordinates: using order-based fallback")
+        points = _order_fallback_points(ordered, map_area)
+        return points, {"minX": None, "maxX": None, "minY": None, "maxY": None}, "order-based fallback"
+
+    mercator = [
+        (idx, stop, math.radians(float(lng)), _mercator_y(float(lat)), float(lat), float(lng), source)
+        for idx, stop, lat, lng, source in coordinate_items
+    ]
+    xs = [item[2] for item in mercator]
+    ys = [item[3] for item in mercator]
+    min_x, max_x = _expand_span(min(xs), max(xs), MIN_SPAN_X)
+    min_y, max_y = _expand_span(min(ys), max(ys), MIN_SPAN_Y)
+    span_x = max_x - min_x
+    span_y = max_y - min_y
+    if span_x <= MIN_SPAN_X or span_y <= MIN_SPAN_Y:
+        warnings.append("small_bbox_span: min span applied")
+
+    drawable_w = map_area["right"] - map_area["left"]
+    drawable_h = map_area["bottom"] - map_area["top"]
+    raw_ratio = span_x / span_y
+    draw_ratio = drawable_w / drawable_h
+    if raw_ratio > draw_ratio:
+        scale = drawable_w / span_x
+        fitted_w = drawable_w
+        fitted_h = span_y * scale
+    else:
+        scale = drawable_h / span_y
+        fitted_h = drawable_h
+        fitted_w = span_x * scale
+    origin_x = map_area["left"] + (drawable_w - fitted_w) / 2
+    origin_y = map_area["top"] + (drawable_h - fitted_h) / 2
+
+    projected_by_index = {}
+    for idx, stop, merc_x, merc_y, lat, lng, source in mercator:
+        x = origin_x + (merc_x - min_x) * scale
+        y = origin_y + (max_y - merc_y) * scale
+        projected_by_index[idx] = (x, y, merc_x, merc_y, lat, lng, source)
+
+    points = []
+    for index, stop in enumerate(ordered):
+        if index in projected_by_index:
+            x, y, raw_x, raw_y, lat, lng, source = projected_by_index[index]
+            points.append(_make_point(stop, index, x, y, raw_x, raw_y, lat, lng, source))
+        else:
+            warnings.append(f"missing_coordinate_stop_{stop.get('order')}: kept in timeline/fallback position")
+            t = index / max(len(ordered) - 1, 1)
+            x = map_area["left"] + drawable_w * t
+            y = map_area["bottom"]
+            points.append(_make_point(stop, index, x, y, x, y, None, None, "fallback"))
+
+    bbox = {
+        "minX": min_x,
+        "maxX": max_x,
+        "minY": min_y,
+        "maxY": max_y,
+        "minLng": min(item[5] for item in mercator),
+        "maxLng": max(item[5] for item in mercator),
+        "minLat": min(item[4] for item in mercator),
+        "maxLat": max(item[4] for item in mercator),
+    }
+    return points, bbox, "coordinate-based"
+
+
+def _distance(a: dict[str, Any], b: dict[str, Any]) -> float:
+    return math.hypot(float(a["x"]) - float(b["x"]), float(a["y"]) - float(b["y"]))
+
+
+def _disperse_close_points(points: list[dict[str, Any]], map_area: dict[str, float]) -> None:
+    visited: set[int] = set()
+    cluster_id = 1
     for index, point in enumerate(points):
-        close_before = sum(
-            1
-            for previous in points[:index]
-            if abs(previous["x"] - point["x"]) < 28 and abs(previous["y"] - point["y"]) < 28
-        )
-        if close_before:
-            point["x"] = round(point["x"] + min(22, close_before * 9), 2)
-            point["y"] = round(point["y"] + min(18, close_before * 7), 2)
+        if index in visited:
+            continue
+        group = [idx for idx, other in enumerate(points) if idx not in visited and _distance(point, other) < 28]
+        if len(group) <= 1:
+            visited.add(index)
+            continue
+        center_x = sum(float(points[idx]["x"]) for idx in group) / len(group)
+        center_y = sum(float(points[idx]["y"]) for idx in group) / len(group)
+        radius = min(28, 18 + len(group) * 2)
+        for offset, idx in enumerate(group):
+            angle = (math.tau / len(group)) * offset - math.pi / 2
+            if offset == 0:
+                x = center_x
+                y = center_y
+            else:
+                x = center_x + math.cos(angle) * radius
+                y = center_y + math.sin(angle) * radius
+            points[idx]["x"] = round(max(map_area["left"], min(map_area["right"], x)), 2)
+            points[idx]["y"] = round(max(map_area["top"], min(map_area["bottom"], y)), 2)
+            points[idx]["isClustered"] = True
+            points[idx]["clusterId"] = f"cluster-{cluster_id}"
+            visited.add(idx)
+        cluster_id += 1
 
 
-def _apply_label_rules(points: list[dict[str, Any]]) -> None:
+def _select_label_indexes(points: list[dict[str, Any]], limit: int = LABEL_LIMIT) -> set[int]:
     if not points:
-        return
+        return set()
     selected = {0, len(points) - 1}
-    cluster_counts: dict[tuple[int, int], int] = {}
-
-    def cluster_key(point: dict[str, Any]) -> tuple[int, int]:
-        return int(float(point["x"]) // 180), int(float(point["y"]) // 140)
-
-    for index in selected:
-        key = cluster_key(points[index])
-        cluster_counts[key] = cluster_counts.get(key, 0) + 1
-
     scored = []
     for index, point in enumerate(points):
+        if point.get("hideLabel"):
+            continue
         score = point.get("photo_count", 0)
         if any(term in point["name"] for term in KEY_LABEL_TERMS):
             score += 100
-        if point.get("time"):
-            score += 2
-        scored.append((score, -abs(index - len(points) / 2), index))
-
-    for _score, _middle_bias, index in sorted(scored, reverse=True):
-        if len(selected) >= min(LABEL_LIMIT, len(points)):
+        if index in selected:
+            score += 1000
+        scored.append((score, -index, index))
+    for _score, _order_bias, index in sorted(scored, reverse=True):
+        if len(selected) >= min(limit, len(points)):
             break
-        key = cluster_key(points[index])
-        if cluster_counts.get(key, 0) >= 2:
-            continue
         selected.add(index)
-        cluster_counts[key] = cluster_counts.get(key, 0) + 1
+    return selected
 
+
+def _label_text_lines(point: dict[str, Any]) -> tuple[str, str]:
+    name = str(point["name"])
+    short_name = name[:10] + ("…" if len(name) > 10 else "")
+    caption = str(point.get("caption") or "")
+    caption = caption.replace("中间站：", "").replace("第一站：", "").replace("最后一站：", "")
+    short_caption = caption[:12]
+    return short_name, short_caption
+
+
+def _candidate_label_boxes(point: dict[str, Any], map_area: dict[str, float]) -> list[dict[str, Any]]:
+    width = 150
+    line_1, line_2 = _label_text_lines(point)
+    height = 46 if line_2 else 34
+    x = float(point["x"])
+    y = float(point["y"])
+    gap = 16
+    offsets = {
+        "top": (-width / 2, -height - gap),
+        "top-right": (gap, -height - gap),
+        "right": (gap, -height / 2),
+        "bottom-right": (gap, gap),
+        "bottom": (-width / 2, gap),
+        "bottom-left": (-width - gap, gap),
+        "left": (-width - gap, -height / 2),
+        "top-left": (-width - gap, -height - gap),
+    }
+    boxes = []
+    for anchor, (dx, dy) in offsets.items():
+        lx = max(map_area["left"], min(map_area["right"] - width, x + dx))
+        ly = max(map_area["top"], min(map_area["bottom"] - height, y + dy))
+        boxes.append({"anchor": anchor, "x": lx, "y": ly, "w": width, "h": height, "line1": line_1, "line2": line_2})
+    return boxes
+
+
+def _rect_intersection_area(a: dict[str, float], b: dict[str, float]) -> float:
+    left = max(a["x"], b["x"])
+    top = max(a["y"], b["y"])
+    right = min(a["x"] + a["w"], b["x"] + b["w"])
+    bottom = min(a["y"] + a["h"], b["y"] + b["h"])
+    if right <= left or bottom <= top:
+        return 0
+    return (right - left) * (bottom - top)
+
+
+def _place_labels(points: list[dict[str, Any]], map_area: dict[str, float], warnings: list[str]) -> None:
+    label_indexes = _select_label_indexes(points)
+    placed: list[dict[str, float]] = []
+    marker_boxes = [{"x": float(point["x"]) - 18, "y": float(point["y"]) - 18, "w": 36, "h": 36} for point in points]
     for index, point in enumerate(points):
-        point["show_label"] = index in selected
-        point["label_position"] = _choose_label_position(point, index, len(points))
+        if index not in label_indexes:
+            continue
+        best_box = None
+        best_score = float("inf")
+        for box in _candidate_label_boxes(point, map_area):
+            score = 0.0
+            for placed_box in placed:
+                score += _rect_intersection_area(box, placed_box) * 3
+            for marker_box in marker_boxes:
+                score += _rect_intersection_area(box, marker_box)
+            if score < best_score:
+                best_score = score
+                best_box = box
+        if best_box is None:
+            continue
+        if best_score > 0 and index not in {0, len(points) - 1}:
+            warnings.append(f"label_hidden_due_collision_stop_{point['order']}")
+            continue
+        if best_score > 0:
+            warnings.append(f"label_collision_resolved_with_min_overlap_stop_{point['order']}")
+        label_offset = point.get("labelOffset") or {}
+        offset_x = _to_float(label_offset.get("x")) if isinstance(label_offset, dict) else 0
+        offset_y = _to_float(label_offset.get("y")) if isinstance(label_offset, dict) else 0
+        offset_x = offset_x or 0
+        offset_y = offset_y or 0
+        label_x = max(map_area["left"], min(map_area["right"] - best_box["w"], best_box["x"] + offset_x))
+        label_y = max(map_area["top"], min(map_area["bottom"] - best_box["h"], best_box["y"] + offset_y))
+        point["show_label"] = True
+        point["labelX"] = round(label_x, 2)
+        point["labelY"] = round(label_y, 2)
+        point["labelWidth"] = best_box["w"]
+        point["labelHeight"] = best_box["h"]
+        point["labelAnchor"] = best_box["anchor"]
+        point["labelLine1"] = best_box["line1"]
+        point["labelLine2"] = best_box["line2"]
+        point["labelConnector"] = {
+            "x1": round(float(point["x"]), 2),
+            "y1": round(float(point["y"]), 2),
+            "x2": round(label_x + best_box["w"] / 2, 2),
+            "y2": round(label_y + best_box["h"] / 2, 2),
+        }
+        placed.append(best_box)
+
+
+def _route_path(points: list[dict[str, Any]]) -> str:
+    if not points:
+        return ""
+    ordered = sorted(points, key=lambda point: int(point["order"]))
+    if len(ordered) == 1:
+        return f"M {ordered[0]['x']} {ordered[0]['y']}"
+    if len(ordered) == 2:
+        return f"M {ordered[0]['x']} {ordered[0]['y']} L {ordered[1]['x']} {ordered[1]['y']}"
+    commands = [f"M {ordered[0]['x']:.1f} {ordered[0]['y']:.1f}"]
+    for index in range(1, len(ordered)):
+        prev = ordered[index - 1]
+        current = ordered[index]
+        cx = (float(prev["x"]) + float(current["x"])) / 2
+        cy = (float(prev["y"]) + float(current["y"])) / 2
+        wave = 12 if index % 2 else -10
+        commands.append(f"Q {cx:.1f} {cy + wave:.1f} {float(current['x']):.1f} {float(current['y']):.1f}")
+    return " ".join(commands)
 
 
 def _turnaround_index(points: list[dict[str, Any]]) -> int:
@@ -194,78 +404,23 @@ def _turnaround_index(points: list[dict[str, Any]]) -> int:
     return max(range(len(points)), key=lambda index: distances[index])
 
 
-def project_route_stops(stops: list[dict[str, Any]], width: int = VIEWBOX_WIDTH, height: int = VIEWBOX_HEIGHT) -> dict[str, Any]:
-    if width != VIEWBOX_WIDTH or height != VIEWBOX_HEIGHT:
-        raise ValueError("This MVP projection uses the fixed 1000x680 album map viewBox.")
-
+def compute_route_layout(stops: list[dict[str, Any]], width: int = VIEWBOX_WIDTH, height: int = VIEWBOX_HEIGHT, options: dict[str, Any] | None = None) -> dict[str, Any]:
+    options = options or {}
+    warnings: list[str] = []
     ordered = sorted(stops, key=lambda item: int(item.get("order") or 9999))
+    map_area = _map_area(width, height, options.get("mapPadding"))
+    if len(ordered) < 2:
+        warnings.append("not_enough_stops")
+
     resolved = []
     for index, stop in enumerate(ordered):
-        lat, lng, confidence = resolve_stop_coordinate(stop)
-        resolved.append((index, stop, lat, lng, confidence))
+        lat, lng, source = resolve_stop_coordinate(stop)
+        resolved.append((index, stop, lat, lng, source))
 
-    coordinate_items = [(idx, stop, lat, lng, confidence) for idx, stop, lat, lng, confidence in resolved if lat is not None and lng is not None]
-    mode = "coordinate-based" if len(coordinate_items) >= 2 else "order-based fallback"
+    points, bbox, mode = _project_coordinate_points(ordered, resolved, width, height, map_area, warnings)
+    _disperse_close_points(points, map_area)
+    _place_labels(points, map_area, warnings)
 
-    if mode == "order-based fallback":
-        points = _fallback_points(ordered)
-        bbox = {"min_lng": None, "max_lng": None, "min_lat": None, "max_lat": None}
-        aspect_ratio = round(width / height, 4)
-    else:
-        lats = [float(item[2]) for item in coordinate_items]
-        lngs = [float(item[3]) for item in coordinate_items]
-        mid_lat = sum(lats) / len(lats)
-        cos_mid = max(cos(radians(mid_lat)), 0.2)
-        xs = [lng * cos_mid for lng in lngs]
-        ys = lats
-        min_x, max_x = min(xs), max(xs)
-        min_y, max_y = min(ys), max(ys)
-        span_x = max(max_x - min_x, 1e-7)
-        span_y = max(max_y - min_y, 1e-7)
-        box_ratio = span_x / span_y
-        canvas_ratio = width / height
-        pad_x = width * PADDING_RATIO
-        pad_y = height * PADDING_RATIO
-        usable_w = width - pad_x * 2
-        usable_h = height - pad_y * 2
-        if box_ratio > canvas_ratio:
-            scale = usable_w / span_x
-            drawn_w = usable_w
-            drawn_h = span_y * scale
-        else:
-            scale = usable_h / span_y
-            drawn_h = usable_h
-            drawn_w = span_x * scale
-        origin_x = (width - drawn_w) / 2
-        origin_y = (height - drawn_h) / 2
-
-        points = []
-        coord_by_index = {idx: (lat, lng, confidence) for idx, stop, lat, lng, confidence in coordinate_items}
-        for index, stop in enumerate(ordered):
-            lat, lng, confidence = coord_by_index.get(index, (None, None, "fallback"))
-            if lat is None or lng is None:
-                # Missing coordinates stay on route order but are clearly marked estimated.
-                t = index / max(len(ordered) - 1, 1)
-                x = origin_x + drawn_w * t
-                y = origin_y + drawn_h * (0.5 + 0.16 * sin(t * 3.14159))
-                points.append(_make_point(stop, index, x, y, None, None, "fallback", t, y / height))
-                continue
-            normalized_x = ((lng * cos_mid) - min_x) / span_x
-            normalized_y = 1 - ((lat - min_y) / span_y)
-            x = origin_x + normalized_x * drawn_w
-            y = origin_y + normalized_y * drawn_h
-            points.append(_make_point(stop, index, x, y, lat, lng, confidence, normalized_x, normalized_y))
-
-        bbox = {
-            "min_lng": min(lngs),
-            "max_lng": max(lngs),
-            "min_lat": min(lats),
-            "max_lat": max(lats),
-        }
-        aspect_ratio = round(box_ratio, 4)
-
-    _apply_visual_jitter(points)
-    _apply_label_rules(points)
     source_counts = {
         "exact": sum(1 for point in points if point["confidence"] == "exact"),
         "cached": sum(1 for point in points if point["confidence"] == "cached"),
@@ -274,16 +429,119 @@ def project_route_stops(stops: list[dict[str, Any]], width: int = VIEWBOX_WIDTH,
     }
     label_count = sum(1 for point in points if point["show_label"])
     inspection = "coordinate-based" if source_counts["exact"] else ("cached-based" if source_counts["cached"] else "fallback")
-    turnaround_index = _turnaround_index(points)
+    route_path = _route_path(points)
     return {
         "mode": mode,
         "inspection": inspection,
-        "turnaround_index": turnaround_index,
-        "view_box": {"width": width, "height": height},
+        "viewBox": {"width": width, "height": height},
+        "mapArea": map_area,
+        "points": points,
+        "routePath": route_path,
         "bbox": bbox,
-        "aspect_ratio": aspect_ratio,
+        "warnings": warnings,
         "source_counts": source_counts,
+        "labelCount": label_count,
         "label_count": label_count,
         "hidden_label_count": max(0, len(points) - label_count),
-        "points": points,
+        "turnaround_index": _turnaround_index(points),
+        "options": {"labelLimit": options.get("labelLimit", LABEL_LIMIT), "timelineLimit": options.get("timelineLimit", 8)},
     }
+
+
+def render_album_route_svg(layout: dict[str, Any], options: dict[str, Any] | None = None) -> str:
+    width = int(layout.get("viewBox", {}).get("width") or VIEWBOX_WIDTH)
+    height = int(layout.get("viewBox", {}).get("height") or VIEWBOX_HEIGHT)
+    points = layout.get("points") or []
+    mode_label = "relative-position based" if layout.get("inspection") == "coordinate-based" else "estimated layout"
+    route_path = layout.get("routePath") or _route_path(points)
+    point_markup = []
+    for index, point in enumerate(points):
+        color = "#4CAF87" if index == 0 else "#F59E0B" if index == len(points) - 1 else "#2F80ED"
+        fill = "#e9fff3" if index == 0 else "#fff3d9" if index == len(points) - 1 else "#eff7ff"
+        point_markup.append(
+            f"""
+  <g class="route-marker" tabindex="0">
+    <title>{escape(point['name'])}｜{escape(point.get('caption') or '')}</title>
+    <circle cx="{point['x']}" cy="{point['y']}" r="14" fill="{fill}" stroke="{color}" stroke-width="4"/>
+    <text x="{point['x']}" y="{float(point['y']) + 4:.1f}" text-anchor="middle" font-size="10" font-weight="900" fill="#173653">{int(point['order']):02d}</text>
+  </g>"""
+        )
+        if point.get("show_label"):
+            connector = point.get("labelConnector") or {}
+            point_markup.append(
+                f"""
+  <path d="M {connector.get('x1', point['x'])} {connector.get('y1', point['y'])} L {connector.get('x2', point['x'])} {connector.get('y2', point['y'])}" stroke="#7eb7a0" stroke-width="1.2" opacity="0.58"/>
+  <g class="route-label">
+    <rect x="{point['labelX']}" y="{point['labelY']}" width="{point['labelWidth']}" height="{point['labelHeight']}" rx="13" fill="#fffaf0" stroke="#b8d8cc" filter="url(#softShadow)"/>
+    <text x="{float(point['labelX']) + 10:.1f}" y="{float(point['labelY']) + 17:.1f}" font-size="12" font-weight="900" fill="#264653">{escape(point.get('labelLine1') or point['name'][:10])}</text>
+    <text x="{float(point['labelX']) + 10:.1f}" y="{float(point['labelY']) + 32:.1f}" font-size="10" font-weight="700" fill="#6b7280">{escape(point.get('labelLine2') or '')}</text>
+  </g>"""
+            )
+    warnings = "；".join(layout.get("warnings") or []) or "ok"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-labelledby="title desc">
+  <title id="title">Album Style Route</title>
+  <desc id="desc">路线示意 / 非导航路线，不是精确导航路线。基于真实点位相对位置生成，风格化地图用于旅行相册展示，保留点位相对方位与顺序。</desc>
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#236f58" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="{width}" height="{height}" rx="28" fill="#f7f1df"/>
+  <path d="M0 110 C160 64 290 126 420 82 C590 26 738 62 1000 18 L1000 0 L0 0 Z" fill="#ecf6df" opacity="0.8"/>
+  <path d="M20 470 C170 430 260 480 388 448 C520 418 642 456 770 424 C870 400 928 422 1000 386 L1000 680 L0 680 Z" fill="#e0f2da" opacity="0.95"/>
+  <path d="M688 116 C760 76 892 92 930 164 C978 254 884 316 774 292 C692 274 610 180 688 116 Z" fill="#a9d8f5" opacity="0.64"/>
+  <path d="M132 342 C220 270 308 298 382 236 C438 190 500 194 562 154" fill="none" stroke="#a9d8f5" stroke-width="10" opacity="0.32" stroke-linecap="round"/>
+  <text x="36" y="44" font-size="24" font-weight="900" fill="#264653">Album Style Route</text>
+  <text x="36" y="68" font-size="12" font-weight="800" fill="#6b7280">基于真实点位相对位置 · 路线示意 / 非导航路线</text>
+  <g transform="translate(780 28)">
+    <rect width="178" height="28" rx="14" fill="#fffaf0" stroke="#c8e2d6"/>
+    <text x="16" y="18" font-size="12" font-weight="900" fill="#4CAF87">{mode_label}</text>
+  </g>
+  <path d="{route_path}" fill="none" stroke="#236f58" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity="0.12"/>
+  <path d="{route_path}" fill="none" stroke="#4CAF87" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  {''.join(point_markup)}
+  <g transform="translate(36 {height - 72})">
+    <rect width="{width - 72}" height="44" rx="16" fill="#fffaf0" stroke="#eadfbd"/>
+    <text x="16" y="20" font-size="12" font-weight="900" fill="#264653">风格化地图用于旅行相册展示，保留点位相对方位与顺序，不是精确导航路线。</text>
+    <text x="16" y="36" font-size="10" fill="#6b7280">debug: {escape(warnings[:120])}</text>
+  </g>
+</svg>
+"""
+
+
+def project_route_stops(stops: list[dict[str, Any]], width: int = VIEWBOX_WIDTH, height: int = VIEWBOX_HEIGHT) -> dict[str, Any]:
+    layout = compute_route_layout(stops, width, height)
+    bbox = layout["bbox"]
+    return {
+        "mode": layout["mode"],
+        "inspection": layout["inspection"],
+        "turnaround_index": layout["turnaround_index"],
+        "view_box": {"width": width, "height": height},
+        "mapArea": layout["mapArea"],
+        "bbox": {
+            "min_lng": bbox.get("minLng"),
+            "max_lng": bbox.get("maxLng"),
+            "min_lat": None,
+            "max_lat": None,
+            **bbox,
+        },
+        "aspect_ratio": None,
+        "source_counts": layout["source_counts"],
+        "label_count": layout["label_count"],
+        "hidden_label_count": layout["hidden_label_count"],
+        "points": [
+            {
+                **point,
+                "normalized_x": None,
+                "normalized_y": None,
+                "label_position": point.get("labelAnchor"),
+            }
+            for point in layout["points"]
+        ],
+        "warnings": layout["warnings"],
+        "routePath": layout["routePath"],
+    }
+
+
+computeRouteLayout = compute_route_layout
+renderAlbumRouteSvg = render_album_route_svg

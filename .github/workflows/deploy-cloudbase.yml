@@ -1,0 +1,56 @@
+name: Deploy StoryAlbum Geo to CloudBase
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy static site
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_DIR: demo-site
+      DEPLOY_PATH: /storyalbum-geo
+      TCB_ENV_ID: ${{ secrets.TCB_ENV_ID }}
+      TCB_SECRET_ID: ${{ secrets.TCB_SECRET_ID }}
+      TCB_SECRET_KEY: ${{ secrets.TCB_SECRET_KEY }}
+      TENCENTCLOUD_SECRETID: ${{ secrets.TCB_SECRET_ID }}
+      TENCENTCLOUD_SECRETKEY: ${{ secrets.TCB_SECRET_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate static StoryAlbum Geo files
+        run: python scripts/check_cloudbase_static.py --site-dir "$DEPLOY_DIR"
+
+      - name: Check CloudBase secrets
+        shell: bash
+        run: |
+          test -n "$TCB_SECRET_ID"
+          test -n "$TCB_SECRET_KEY"
+          test -n "$TCB_ENV_ID"
+
+      - name: Deploy to CloudBase static hosting
+        run: >
+          npx --yes @cloudbase/cli@latest hosting:deploy
+          "$DEPLOY_DIR"
+          "$DEPLOY_PATH"
+          -e "$TCB_ENV_ID"
+          --secretId "$TCB_SECRET_ID"
+          --secretKey "$TCB_SECRET_KEY"

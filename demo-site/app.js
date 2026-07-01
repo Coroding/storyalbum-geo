@@ -2,13 +2,25 @@ const DATA_URL = "data/geo_album.json";
 
 const formatBool = (value) => (value ? "是" : "否");
 
-const setImage = (selector, src, fallbackText) => {
+const setImage = (selector, src, fallbackText, fallbackSrc = "") => {
   const img = document.querySelector(selector);
   if (!img) return;
   if (src) {
+    img.onerror = () => {
+      if (fallbackSrc && img.src !== fallbackSrc) {
+        img.onerror = null;
+        img.src = fallbackSrc;
+      } else {
+        img.replaceWith(Object.assign(document.createElement("div"), { className: "empty", textContent: fallbackText }));
+      }
+    };
     img.src = src;
   } else {
-    img.replaceWith(Object.assign(document.createElement("div"), { className: "empty", textContent: fallbackText }));
+    if (fallbackSrc) {
+      setImage(selector, fallbackSrc, fallbackText);
+    } else {
+      img.replaceWith(Object.assign(document.createElement("div"), { className: "empty", textContent: fallbackText }));
+    }
   }
 };
 
@@ -36,11 +48,33 @@ const renderStats = (stats = {}) => {
 const renderMapComparison = (album) => {
   const amap = album.stats?.hasAmapStaticMap ? album.map?.amapStatic : album.map?.fallbackPng || album.map?.fallback;
   const styled = album.map?.fallback || album.map?.fallbackPng || album.map?.amapStatic;
-  setImage("#amapRouteMap", amap, "暂无原始高德地图底图");
-  setImage("#styledRouteMap", styled, "暂无风格化路线图");
+  const fallbackMap = album.map?.fallbackPng || album.map?.fallback || "";
+  setImage("#amapRouteMap", amap, "暂无原始高德地图底图", fallbackMap);
+  setImage("#styledRouteMap", styled, "暂无风格化路线图", album.map?.fallbackPng || "");
   document.querySelector("#mapNote").textContent =
     album.map?.note || "地图结果已缓存，本页不在前端请求高德 API；风格化地图基于真实点位相对位置生成，不是精确导航路线。";
   renderProjectionDebug(album.map?.projectionMetadata);
+  renderRouteTimeline(album.stops || []);
+};
+
+const renderRouteTimeline = (stops = []) => {
+  const target = document.querySelector("#routeTimeline");
+  const button = document.querySelector("#toggleRouteTimeline");
+  if (!target || !button) return;
+  let expanded = false;
+  const paint = () => {
+    const visible = expanded ? stops : stops.slice(0, 8);
+    target.innerHTML = visible
+      .map((stop) => `<span class="route-chip"><b>${String(stop.order).padStart(2, "0")}</b>${stop.name || "未命名点位"}</span>`)
+      .join("");
+    button.hidden = stops.length <= 8;
+    button.textContent = expanded ? "收起" : `展开全部 ${stops.length} 个点`;
+  };
+  button.onclick = () => {
+    expanded = !expanded;
+    paint();
+  };
+  paint();
 };
 
 const renderProjectionDebug = (metadataUrl) => {

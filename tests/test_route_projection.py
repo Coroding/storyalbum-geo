@@ -4,7 +4,14 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from scripts.route_projection import LABEL_LIMIT, VIEWBOX_HEIGHT, VIEWBOX_WIDTH, project_route_stops
+from scripts.route_projection import (
+    LABEL_LIMIT,
+    VIEWBOX_HEIGHT,
+    VIEWBOX_WIDTH,
+    computeRouteLayout,
+    project_route_stops,
+    renderAlbumRouteSvg,
+)
 
 
 class RouteProjectionTests(unittest.TestCase):
@@ -61,6 +68,42 @@ class RouteProjectionTests(unittest.TestCase):
 
         self.assertEqual(projection["mode"], "order-based fallback")
         self.assertTrue(all(point["confidence"] == "fallback" for point in projection["points"]))
+
+    def test_compute_route_layout_keeps_points_out_of_legend_area(self):
+        stops = [
+            {"order": 1, "name": "丽江", "centroid_wgs84": {"lng": 100.20, "lat": 26.90}},
+            {"order": 2, "name": "树底", "centroid_wgs84": {"lng": 100.43, "lat": 26.99}},
+            {"order": 3, "name": "泸沽湖", "centroid_wgs84": {"lng": 100.85, "lat": 27.70}},
+            {"order": 4, "name": "丽江市博物院", "centroid_wgs84": {"lng": 100.23, "lat": 26.88}},
+        ]
+
+        layout = computeRouteLayout(stops, VIEWBOX_WIDTH, VIEWBOX_HEIGHT)
+        map_area = layout["mapArea"]
+
+        self.assertIn("routePath", layout)
+        self.assertEqual(layout["mode"], "coordinate-based")
+        for point in layout["points"]:
+            self.assertGreaterEqual(point["x"], map_area["left"])
+            self.assertLessEqual(point["x"], map_area["right"])
+            self.assertGreaterEqual(point["y"], map_area["top"])
+            self.assertLessEqual(point["y"], map_area["bottom"])
+        self.assertLessEqual(layout["labelCount"], 6)
+
+    def test_render_album_route_svg_has_no_embedded_timeline(self):
+        layout = computeRouteLayout(
+            [
+                {"order": 1, "name": "丽江", "centroid_wgs84": {"lng": 100.20, "lat": 26.90}},
+                {"order": 2, "name": "泸沽湖", "centroid_wgs84": {"lng": 100.85, "lat": 27.70}},
+            ],
+            VIEWBOX_WIDTH,
+            VIEWBOX_HEIGHT,
+        )
+
+        svg = renderAlbumRouteSvg(layout)
+
+        self.assertIn('viewBox="0 0 1000 680"', svg)
+        self.assertIn("路线示意 / 非导航路线", svg)
+        self.assertNotIn("完整停靠点 timeline", svg)
 
 
 if __name__ == "__main__":

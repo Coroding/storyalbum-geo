@@ -335,6 +335,60 @@ p {
   font-weight: 900;
 }
 
+.route-timeline-block {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.timeline-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.timeline-head button {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--lake-blue-deep);
+  color: #ffffff;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.route-timeline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.route-chip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 190px;
+  gap: 7px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(147, 203, 228, 0.2);
+  color: var(--lake-blue-deep);
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.route-chip b {
+  flex: 0 0 auto;
+  color: var(--leaf-green);
+}
+
 .debug-panel {
   margin-top: 12px;
   border: 1px dashed rgba(55, 114, 190, 0.32);

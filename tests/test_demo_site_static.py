@@ -19,12 +19,14 @@ class DemoSiteStaticTest(unittest.TestCase):
         self.assertIn("基于真实点位相对位置", html)
         self.assertIn("不是精确导航路线", html)
         self.assertIn('id="projectionDebug"', html)
+        self.assertIn('id="routeTimeline"', html)
         self.assertIn("renderMapComparison", js)
         self.assertIn("renderProjectionDebug", js)
+        self.assertIn("renderRouteTimeline", js)
         self.assertIn("原始高德地图底图", js)
         self.assertIn("风格化路线图", js)
         self.assertNotIn("restapi.amap.com", js)
-        self.assertNotIn("8246ee3f82da04a3fde1b1abffc06e25", html + js)
+        self.assertNotRegex(html + js, r"(?i)(?<![A-Za-z0-9])[0-9a-f]{32}(?![A-Za-z0-9])")
 
     def test_geo_data_uses_deployable_local_asset_paths_and_utf8_copy(self):
         data = (ROOT / "demo-site" / "data" / "geo_album.json").read_text(encoding="utf-8")
@@ -44,7 +46,8 @@ class DemoSiteStaticTest(unittest.TestCase):
         self.assertIn('viewBox="0 0 1000 680"', svg)
         self.assertIn("基于真实点位相对位置", svg)
         self.assertIn("不是精确导航路线", svg)
-        self.assertIn("stroke-dasharray", svg)
+        self.assertIn("风格化地图用于旅行相册展示", svg)
+        self.assertNotIn("完整停靠点 timeline", svg)
         self.assertNotIn("restapi.amap.com", svg)
 
 
