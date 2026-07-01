@@ -52,5 +52,3 @@ jobs:
           "$DEPLOY_DIR"
           "$DEPLOY_PATH"
           -e "$TCB_ENV_ID"
-          --secretId "$TCB_SECRET_ID"
-          --secretKey "$TCB_SECRET_KEY"
