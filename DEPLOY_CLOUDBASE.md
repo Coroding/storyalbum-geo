@@ -64,9 +64,10 @@ The workflow:
 
 ## CloudBase Deploy Command
 
-The CI command is:
+The CI logs in non-interactively and then deploys:
 
 ```bash
+npx --yes --package @cloudbase/cli@latest cloudbase login --apiKeyId "$TCB_SECRET_ID" --apiKey "$TCB_SECRET_KEY"
 npx --yes --package @cloudbase/cli@latest cloudbase hosting:deploy demo-site /storyalbum-geo -e "$TCB_ENV_ID"
 ```
 

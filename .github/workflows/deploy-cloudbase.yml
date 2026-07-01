@@ -46,6 +46,12 @@ jobs:
           test -n "$TCB_SECRET_KEY"
           test -n "$TCB_ENV_ID"
 
+      - name: Login to CloudBase
+        run: >
+          npx --yes --package @cloudbase/cli@latest cloudbase login
+          --apiKeyId "$TCB_SECRET_ID"
+          --apiKey "$TCB_SECRET_KEY"
+
       - name: Deploy to CloudBase static hosting
         run: >
           npx --yes --package @cloudbase/cli@latest cloudbase hosting:deploy
