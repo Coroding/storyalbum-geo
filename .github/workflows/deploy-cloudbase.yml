@@ -48,7 +48,7 @@ jobs:
 
       - name: Deploy to CloudBase static hosting
         run: >
-          npx --yes @cloudbase/cli@latest hosting:deploy
+          npx --yes --package @cloudbase/cli@latest cloudbase hosting:deploy
           "$DEPLOY_DIR"
           "$DEPLOY_PATH"
           -e "$TCB_ENV_ID"

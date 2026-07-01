@@ -67,7 +67,7 @@ The workflow:
 The CI command is:
 
 ```bash
-npx --yes @cloudbase/cli@latest hosting:deploy demo-site /storyalbum-geo -e "$TCB_ENV_ID" --secretId "$TCB_SECRET_ID" --secretKey "$TCB_SECRET_KEY"
+npx --yes --package @cloudbase/cli@latest cloudbase hosting:deploy demo-site /storyalbum-geo -e "$TCB_ENV_ID" --secretId "$TCB_SECRET_ID" --secretKey "$TCB_SECRET_KEY"
 ```
 
 If CloudBase CLI changes credential flags, keep the same GitHub Secrets and update only the final deploy command in the workflow.
